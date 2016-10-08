@@ -1,0 +1,15 @@
+header {
+  order: 1;
+  flex-shrink: 0;
+}
+
+article {
+  order: 2;
+  flex: 1;
+  overflow: auto;
+}
+
+footer {
+  order: 3;
+  flex-shrink: 0;
+}

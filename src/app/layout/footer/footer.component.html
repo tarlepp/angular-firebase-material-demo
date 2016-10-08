@@ -1,0 +1,15 @@
+<md-toolbar color="primary">
+
+  <div class="fill"></div>
+
+  <span *ngFor="let link of links">
+    <a href="{{link.url}}">
+      <md-icon>{{link.icon}}</md-icon>
+
+      <span>{{link.name}}</span>
+    </a>
+  </span>
+
+  <div class="fill"></div>
+
+</md-toolbar>

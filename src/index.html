@@ -1,14 +1,53 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Angular2FirebaseMaterialDemo</title>
-  <base href="/">
+  <head>
+    <meta charset="utf-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root>Loading...</app-root>
-</body>
+    <title>Angular2-Firebase-Material Demo</title>
+
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <style>
+      .loading {
+        opacity: 0;
+        transition: opacity .8s ease-in-out;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: #000;
+        z-index: -1;
+      }
+
+      app-root:empty + .loading {
+        opacity: 1;
+        z-index: 100;
+      }
+
+      app-root:empty + .loading h1 {
+        color: #eee;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translate(0, -50%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <app-root></app-root>
+
+    <div class="loading">
+      <h1>Loading...</h1>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,30 @@
+.fill {
+  flex: 1 1 auto;
+}
+
+span {
+  padding: 0 16px;
+}
+
+a {
+  color: #eee;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    padding: 0;
+  }
+
+  &:hover {
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+md-icon {
+  margin-right: 8px;
+}
