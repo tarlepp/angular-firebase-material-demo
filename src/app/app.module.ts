@@ -3,12 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule, MdIconRegistry } from '@angular/material';
+import * as firebase from 'firebase'; // See https://github.com/angular/angularfire2/issues/529
+import { AngularFireModule } from 'angularfire2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { config } from './config/config';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,14 @@ import { FooterComponent } from './layout/footer/footer.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule.forRoot(),
+    AngularFireModule.initializeApp(config.FIREBASE_CONFIG, config.FIREBASE_AUTH_CONFIG),
   ],
   providers: [
-    MdIconRegistry
+    MdIconRegistry,
   ],
   bootstrap: [
-    AppComponent
+    AppComponent,
   ]
 })
 
