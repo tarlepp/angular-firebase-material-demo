@@ -1,3 +1,27 @@
 <md-toolbar color="primary">
   <span>angular2-firebase-material-demo</span>
+
+  <div class="fill"></div>
+
+  <div *ngIf="(af.auth | async)?.uid">
+    <button
+      md-mini-fab
+      md-tooltip="Logout"
+      tooltip-position="below"
+      (click)="logout()"
+    >
+      <md-icon>power_settings_new</md-icon>
+    </button>
+  </div>
+
+  <div *ngIf="!(af.auth | async)?.uid">
+    <button
+      md-mini-fab
+      md-tooltip="Login with Facebook, Google, Twitter or GitHub"
+      tooltip-position="below"
+      [routerLink]="['/login']"
+    >
+      <md-icon>person</md-icon>
+    </button>
+  </div>
 </md-toolbar>
