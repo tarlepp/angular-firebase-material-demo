@@ -1,0 +1,20 @@
+import * as firebase from 'firebase'; // See https://github.com/angular/angularfire2/issues/529
+import { AuthProviders, AuthMethods } from 'angularfire2';
+
+export const FIREBASE_CONFIG = {
+  apiKey: '<your-key>',
+  authDomain: '<your-project-authdomain>',
+  databaseURL: '<your-database-URL>',
+  storageBucket: '<your-storage-bucket>'
+  messagingSenderId: '<your-messaging-sender-id>',
+};
+
+export const FIREBASE_AUTH_CONFIG = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Redirect,
+};
+
+export class config {
+  public static FIREBASE_CONFIG = FIREBASE_CONFIG;
+  public static FIREBASE_AUTH_CONFIG = FIREBASE_AUTH_CONFIG;
+}
