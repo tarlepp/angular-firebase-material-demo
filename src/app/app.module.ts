@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule, MdIconRegistry } from '@angular/material';
 import * as firebase from 'firebase'; // See https://github.com/angular/angularfire2/issues/529
 import { AngularFireModule } from 'angularfire2';
+import { MomentModule } from 'angular2-moment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(config.FIREBASE_CONFIG, config.FIREBASE_AUTH_CONFIG),
+    MomentModule,
   ],
   providers: [
     MdIconRegistry,
