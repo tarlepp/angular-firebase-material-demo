@@ -27,6 +27,10 @@ export class AboutComponent {
       name: 'Flexbox Grid',
       url: 'https://github.com/kristoferjoseph/flexboxgrid',
     },
+    {
+      name: 'angular2-moment',
+      url: 'https://github.com/urish/angular2-moment',
+    },
   ];
 
   externalLinks: any[] = [
@@ -48,6 +52,10 @@ export class AboutComponent {
       name: 'Angular 2 style guide',
       logo: 'https://angular.io/resources/images/logos/angular2/angular.svg',
       url: 'https://angular.io/docs/ts/latest/guide/style-guide.html',
+    },
+    {
+      name: 'Moment.js',
+      url: 'http://momentjs.com/',
     },
   ];
 
