@@ -1,4 +1,21 @@
 <md-toolbar color="primary">
+  <button md-icon-button [md-menu-trigger-for]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+
+  <md-menu #menu="mdMenu">
+    <button md-menu-item [routerLink]="['/about']">About</button>
+
+    <div *ngIf="(af.auth | async)?.uid">
+      <button md-menu-item [routerLink]="['/todos']">Todos</button>
+      <button md-menu-item (click)="logout()">Logout</button>
+    </div>
+
+    <div *ngIf="!(af.auth | async)?.uid">
+      <button md-menu-item [routerLink]="['/login']">Login</button>
+    </div>
+  </md-menu>
+
   <span>angular2-firebase-material-demo</span>
 
   <div class="fill"></div>
