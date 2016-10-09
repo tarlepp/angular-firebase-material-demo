@@ -57,4 +57,8 @@ export class ListComponent implements OnInit {
       }
     );
   }
+
+  remove(item: todoItem) {
+    this.todos.remove(item.$key);
+  }
 }
