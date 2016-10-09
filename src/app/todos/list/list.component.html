@@ -23,16 +23,38 @@
   <h2>Current todo items</h2>
 
   <md-list>
-    <md-list-item
+    <md-list-item class="active"
       *ngFor="let item of todos | async"
+      [class.active]="item.active"
+      [class.done]="item.done"
+      (mouseenter)="item.active = true"
+      (mouseleave)="item.active = false"
     >
-      <md-checkbox
-        [(ngModel)]="item.done"
-        (change)="toggleStatus(item)"
-      ></md-checkbox>
+      <div class="row middle-xs fill">
+        <div>
+          <md-checkbox
+            [(ngModel)]="item.done"
+            (change)="toggleStatus(item)"
+          ></md-checkbox>
+        </div>
 
-      <h3 md-line>{{item.todo}}</h3>
+        <div md-line class="fill content">
+          <h3>{{item.todo}}</h3>
+          <p>
+            Created: {{((item.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm'}}
+
+            <span *ngIf="item.createdAt !== item.updatedAt">
+              Updated: {{((item.updatedAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm'}}
+            </span>
+          </p>
+        </div>
+
+        <div>
+          <button md-mini-fab color="warn">
+            <md-icon>clear</md-icon>
+          </button>
+        </div>
+      </div>
     </md-list-item>
   </md-list>
-
 </div>

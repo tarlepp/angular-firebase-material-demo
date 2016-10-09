@@ -1,3 +1,20 @@
 h2 {
   margin-bottom: 0;
 }
+
+md-checkbox {
+  position: relative;
+  top: -8px;
+}
+
+.done {
+  h3 {
+    text-decoration: line-through;
+  }
+}
+
+.content {
+  h3, p {
+    margin: 0;
+  }
+}
