@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ListComponent } from './todos/list/list.component';
 import { LoginComponent } from './login/login.component';
+import { ChatComponent } from './chat/chat.component';
 
-const routes: Route[] = [
+const routes = [
   {
     path: '',
     component: HeaderComponent,
@@ -34,6 +35,10 @@ const routes: Route[] = [
   {
     path: 'todos',
     component: ListComponent,
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
   }
 ];
 

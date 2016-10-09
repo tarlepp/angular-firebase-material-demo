@@ -1,0 +1,35 @@
+<div class="fill-2">
+  <div class="container" #scrollMe>
+    <md-list>
+      <md-list-item *ngFor="let item of items | async">
+        <h3 md-line>
+          <span>{{((item.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm:ss'}}</span>
+          {{item.nick}}
+        </h3>
+        <span md-line>{{item.message}}</span>
+      </md-list-item>
+    </md-list>
+  </div>
+
+  <div class="normal-content">
+    <form #messageForm="ngForm" (submit)="addNewMessage()">
+      <div class="row normal-content">
+        <div class="fill">
+          <md-input name="message" class="fill" placeholder="Add new message" required
+            [(ngModel)]="message"
+            #messageControl
+          ></md-input>
+        </div>
+
+        <div>
+          <button type="submit" md-icon-button color="primary"
+            [disabled]="messageForm.invalid"
+          >
+            <md-icon>send</md-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

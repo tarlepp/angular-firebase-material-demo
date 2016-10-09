@@ -8,6 +8,7 @@
 
     <div *ngIf="(af.auth | async)?.uid">
       <button md-menu-item [routerLink]="['/todos']">Todos</button>
+      <button md-menu-item [routerLink]="['/chat']">Chat</button>
       <button md-menu-item (click)="logout()">Logout</button>
     </div>
 

@@ -15,6 +15,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { config } from './config/config';
 import { ListComponent } from './todos/list/list.component';
 import { LoginComponent } from './login/login.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     ListComponent,
     LoginComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
