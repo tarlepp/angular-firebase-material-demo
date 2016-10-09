@@ -4,6 +4,8 @@ import { Route, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { ListComponent } from './todos/list/list.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Route[] = [
   {
@@ -25,6 +27,14 @@ const routes: Route[] = [
     path: 'about',
     component: AboutComponent,
   },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'todos',
+    component: ListComponent,
+  }
 ];
 
 @NgModule({
@@ -37,5 +47,4 @@ const routes: Route[] = [
   providers: []
 })
 
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

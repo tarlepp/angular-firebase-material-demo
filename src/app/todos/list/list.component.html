@@ -1,0 +1,38 @@
+<div class="normal-content">
+  <h2>Add new todo</h2>
+
+  <form #todoForm="ngForm" (submit)="addNewTodo()">
+    <div class="row normal-content">
+      <div class="fill">
+        <md-input name="todo" class="fill" placeholder="New todo item" required
+          [(ngModel)]="todo"
+          #todoControl
+        ></md-input>
+      </div>
+
+      <div>
+        <button type="submit" md-icon-button color="primary"
+          [disabled]="todoForm.invalid"
+        >
+          <md-icon>send</md-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <h2>Current todo items</h2>
+
+  <md-list>
+    <md-list-item
+      *ngFor="let item of todos | async"
+    >
+      <md-checkbox
+        [(ngModel)]="item.done"
+        (change)="toggleStatus(item)"
+      ></md-checkbox>
+
+      <h3 md-line>{{item.todo}}</h3>
+    </md-list-item>
+  </md-list>
+
+</div>
