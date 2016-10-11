@@ -19,12 +19,19 @@
  */
 import { Directive, Input, HostBinding } from '@angular/core';
 
+enum flexDirection {
+  row = 1,
+  'row-reverse',
+  column,
+  'column-reverse',
+}
+
 @Directive({
   selector: '[layout]'
 })
 
 export class LayoutDirective {
-  @Input() layout: string;
+  @Input() layout: flexDirection;
   @Input() layoutAlign: string;
   @Input() layoutJustify: string;
 
@@ -32,7 +39,13 @@ export class LayoutDirective {
 
   @HostBinding('style.flex-direction')
   get flexDirection() {
-    return (this.layout === 'column') ? 'column' : 'row';
+    if (!flexDirection[this.layout]) {
+      throw new Error(
+        `Invalid layout property value '${this.layout}', use one of following '${LayoutDirective.getPropertyNames(flexDirection).join("', '")}'`
+      )
+    }
+
+    return flexDirection[this.layout];
   }
 
   @HostBinding('style.align-items')
@@ -43,5 +56,9 @@ export class LayoutDirective {
   @HostBinding('style.justify-content')
   get justifyContent() {
     return this.layoutJustify ? this.layoutJustify : 'stretch';
+  }
+
+  static getPropertyNames(data: Object): Array {
+    return Object.getOwnPropertyNames(data).filter((number) => !Number(number));
   }
 }
