@@ -20,10 +20,18 @@
 import { Directive, Input, HostBinding } from '@angular/core';
 
 enum flexDirection {
-  row = 1,
+  'row' = 1,
   'row-reverse',
-  column,
+  'column',
   'column-reverse',
+}
+
+enum alignItems {
+  'flex-start' = 1,
+  'flex-end',
+  'center',
+  'baseline',
+  'stretch',
 }
 
 @Directive({
@@ -32,7 +40,7 @@ enum flexDirection {
 
 export class LayoutDirective {
   @Input() layout: flexDirection;
-  @Input() layoutAlign: string;
+  @Input() layoutAlign: alignItems = alignItems['flex-start'];
   @Input() layoutJustify: string;
 
   @HostBinding('style.display') display = 'flex';
@@ -41,16 +49,22 @@ export class LayoutDirective {
   get flexDirection() {
     if (!flexDirection[this.layout]) {
       throw new Error(
-        `Invalid layout property value '${this.layout}', use one of following '${LayoutDirective.getPropertyNames(flexDirection).join("', '")}'`
+        `Invalid 'layout' attribute value '${this.layout}', use one of following: '${LayoutDirective.getPropertyNames(flexDirection).join("', '")}'.`
       )
     }
 
-    return flexDirection[this.layout];
+    return flexDirection[flexDirection[this.layout]];
   }
 
   @HostBinding('style.align-items')
   get alignItems() {
-    return this.layoutAlign ? this.layoutAlign : 'start';
+    if (!alignItems[this.layoutAlign]) {
+      throw new Error(
+        `Invalid 'layoutAlign' attribute value '${this.layoutAlign}', use one of following: '${LayoutDirective.getPropertyNames(alignItems).join("', '")}'.`
+      )
+    }
+
+    return alignItems[alignItems[this.layoutAlign]];
   }
 
   @HostBinding('style.justify-content')
@@ -58,7 +72,7 @@ export class LayoutDirective {
     return this.layoutJustify ? this.layoutJustify : 'stretch';
   }
 
-  static getPropertyNames(data: Object): Array {
+  static getPropertyNames(data: Object): Array<string> {
     return Object.getOwnPropertyNames(data).filter((number) => !Number(number));
   }
 }
