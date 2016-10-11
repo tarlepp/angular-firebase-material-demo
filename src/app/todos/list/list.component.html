@@ -1,44 +1,38 @@
 <div class="normal-content">
   <h2>Add new todo</h2>
 
-  <form #todoForm="ngForm" (submit)="addNewTodo()">
-    <div class="row normal-content">
-      <div class="fill">
-        <md-input name="todo" class="fill" placeholder="New todo item" required
-          [(ngModel)]="todo"
-          #todoControl
-        ></md-input>
-      </div>
+  <form #todoForm="ngForm" (submit)="addNewTodo()" layout="column">
+    <div layout="row">
+      <md-input name="todo" class="fill" placeholder="New todo item" required flex
+        [(ngModel)]="todo"
+        #todoControl
+      ></md-input>
 
-      <div>
-        <button type="submit" md-icon-button color="primary"
-          [disabled]="todoForm.invalid"
-        >
-          <md-icon>send</md-icon>
-        </button>
-      </div>
+      <button type="submit" md-icon-button color="primary"
+        [disabled]="todoForm.invalid"
+      >
+        <md-icon>send</md-icon>
+      </button>
     </div>
   </form>
 
   <h2>Current todo items</h2>
 
   <md-list>
-    <md-list-item class="active"
+    <md-list-item
       *ngFor="let item of todos | async"
       [class.active]="item.active"
       [class.done]="item.done"
       (mouseenter)="item.active = true"
       (mouseleave)="item.active = false"
     >
-      <div class="row middle-xs fill">
-        <div>
-          <md-checkbox
-            [(ngModel)]="item.done"
-            (change)="toggleStatus(item)"
-          ></md-checkbox>
-        </div>
+      <div layout="row" layoutAlign="center" flex>
+        <md-checkbox
+          [(ngModel)]="item.done"
+          (change)="toggleStatus(item)"
+        ></md-checkbox>
 
-        <div md-line class="fill content">
+        <div md-line flex>
           <h3>{{item.todo}}</h3>
           <p>
             Created: {{((item.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm'}}
@@ -49,13 +43,11 @@
           </p>
         </div>
 
-        <div>
-          <button md-mini-fab color="warn"
-            (click)="remove(item)"
-          >
-            <md-icon>clear</md-icon>
-          </button>
-        </div>
+        <button md-mini-fab color="warn"
+          (click)="remove(item)"
+        >
+          <md-icon>clear</md-icon>
+        </button>
       </div>
     </md-list-item>
   </md-list>

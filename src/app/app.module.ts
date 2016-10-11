@@ -16,6 +16,8 @@ import { config } from './config/config';
 import { ListComponent } from './todos/list/list.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
+import { LayoutDirective } from './shared/layout.directive';
+import { FlexDirective } from './shared/flex.directive';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ChatComponent } from './chat/chat.component';
     ListComponent,
     LoginComponent,
     ChatComponent,
+    LayoutDirective,
+    FlexDirective,
   ],
   imports: [
     BrowserModule,
