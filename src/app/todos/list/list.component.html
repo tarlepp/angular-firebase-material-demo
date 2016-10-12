@@ -1,9 +1,9 @@
 <div class="normal-content">
   <h2>Add new todo</h2>
 
-  <form #todoForm="ngForm" (submit)="addNewTodo()" layout="column">
-    <div layout="row">
-      <md-input name="todo" class="fill" placeholder="New todo item" required flex
+  <form #todoForm="ngForm" (submit)="addNewTodo()" appLayout="column">
+    <div appLayout="row">
+      <md-input name="todo" class="fill" placeholder="New todo item" required appFlex
         [(ngModel)]="todo"
         #todoControl
       ></md-input>
@@ -26,13 +26,13 @@
       (mouseenter)="item.active = true"
       (mouseleave)="item.active = false"
     >
-      <div layout="row" layoutAlign="center" flex>
+      <div appLayout="row" appLayoutAlign="center" appFlex>
         <md-checkbox
           [(ngModel)]="item.done"
           (change)="toggleStatus(item)"
         ></md-checkbox>
 
-        <div md-line flex>
+        <div md-line appFlex>
           <h3>{{item.todo}}</h3>
           <p>
             Created: {{((item.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm'}}

@@ -2,13 +2,13 @@
  * Generic directive to attach 'display: flex', 'flex-direction', 'align-items' and 'justify-content' to any element.
  * Usage examples;
  *
- *  <div layout="row"></div>
+ *  <div appLayout="row"></div>
  *    => <div style="display: flex; flex-direction: row;"></div>
  *
- *  <div layout="column" layoutAlign="center></div>
+ *  <div appLayout="column" appLayoutAlign="center></div>
  *    => <div style="display: flex; flex-direction: column; align-items: center;"></div>
  *
- *  <div layout="column" layoutJustify="space-around></div>
+ *  <div appLayout="column" appLayoutJustify="space-around></div>
  *    => <div style="display: flex; flex-direction: column; justify-content: space-around;"></div>
  *
  * More information about each CSS property that directive uses;
@@ -43,35 +43,35 @@ enum justifyContent {
 }
 
 @Directive({
-  selector: '[layout]'
+  selector: '[appLayout]'
 })
 
 export class LayoutDirective {
-  @Input() layout: flexDirection;
-  @Input() layoutAlign: alignItems = alignItems['stretch'];
-  @Input() layoutJustify: justifyContent = justifyContent['flex-start'];
+  @Input() appLayout: flexDirection;
+  @Input() appLayoutAlign: alignItems = alignItems['stretch'];
+  @Input() appLayoutJustify: justifyContent = justifyContent['flex-start'];
 
   @HostBinding('style.display') display = 'flex';
 
   @HostBinding('style.flex-direction')
   get flexDirection() {
-    this.validateInput('layout', flexDirection);
+    this.validateInput('appLayout', flexDirection);
 
-    return this.layout;
+    return this.appLayout;
   }
 
   @HostBinding('style.align-items')
   get alignItems() {
-    this.validateInput('layoutAlign', alignItems);
+    this.validateInput('appLayoutAlign', alignItems);
 
-    return this.layoutAlign;
+    return this.appLayoutAlign;
   }
 
   @HostBinding('style.justify-content')
   get justifyContent() {
-    this.validateInput('layoutJustify', justifyContent);
+    this.validateInput('appLayoutJustify', justifyContent);
 
-    return this.layoutJustify;
+    return this.appLayoutJustify;
   }
 
   static getPropertyNames(data: Object): Array<string> {
@@ -83,8 +83,8 @@ export class LayoutDirective {
       const items = LayoutDirective.getPropertyNames(collection);
 
       throw new Error(
-        `Invalid '${variable}' attribute value '${this[variable]}', use one of following: '${items.join("', '")}'.`
-      )
+        `Invalid '${variable}' attribute value '${this[variable]}', use one of following: '${items.join('\', \'')}'.`
+      );
     }
   }
 }
