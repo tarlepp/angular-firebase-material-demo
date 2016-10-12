@@ -34,14 +34,22 @@ enum alignItems {
   'stretch',
 }
 
+enum justifyContent {
+  'flex-start' = 1,
+  'flex-end',
+  'center',
+  'space-between',
+  'space-around',
+}
+
 @Directive({
   selector: '[layout]'
 })
 
 export class LayoutDirective {
   @Input() layout: flexDirection;
-  @Input() layoutAlign: alignItems = alignItems['flex-start'];
-  @Input() layoutJustify: string;
+  @Input() layoutAlign: alignItems = alignItems['stretch'];
+  @Input() layoutJustify: justifyContent = justifyContent['flex-start'];
 
   @HostBinding('style.display') display = 'flex';
 
@@ -53,7 +61,7 @@ export class LayoutDirective {
       )
     }
 
-    return flexDirection[flexDirection[this.layout]];
+    return this.layout;
   }
 
   @HostBinding('style.align-items')
@@ -64,12 +72,18 @@ export class LayoutDirective {
       )
     }
 
-    return alignItems[alignItems[this.layoutAlign]];
+    return this.layoutAlign;
   }
 
   @HostBinding('style.justify-content')
   get justifyContent() {
-    return this.layoutJustify ? this.layoutJustify : 'stretch';
+    if (!justifyContent[this.layoutJustify]) {
+      throw new Error(
+        `Invalid 'layoutJustify' attribute value '${this.layoutJustify}', use one of following: '${LayoutDirective.getPropertyNames(justifyContent).join("', '")}'.`
+      )
+    }
+
+    return this.layoutJustify;
   }
 
   static getPropertyNames(data: Object): Array<string> {
