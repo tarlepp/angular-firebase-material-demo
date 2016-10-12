@@ -55,38 +55,36 @@ export class LayoutDirective {
 
   @HostBinding('style.flex-direction')
   get flexDirection() {
-    if (!flexDirection[this.layout]) {
-      throw new Error(
-        `Invalid 'layout' attribute value '${this.layout}', use one of following: '${LayoutDirective.getPropertyNames(flexDirection).join("', '")}'.`
-      )
-    }
+    this.validateInput('layout', flexDirection);
 
     return this.layout;
   }
 
   @HostBinding('style.align-items')
   get alignItems() {
-    if (!alignItems[this.layoutAlign]) {
-      throw new Error(
-        `Invalid 'layoutAlign' attribute value '${this.layoutAlign}', use one of following: '${LayoutDirective.getPropertyNames(alignItems).join("', '")}'.`
-      )
-    }
+    this.validateInput('layoutAlign', alignItems);
 
     return this.layoutAlign;
   }
 
   @HostBinding('style.justify-content')
   get justifyContent() {
-    if (!justifyContent[this.layoutJustify]) {
-      throw new Error(
-        `Invalid 'layoutJustify' attribute value '${this.layoutJustify}', use one of following: '${LayoutDirective.getPropertyNames(justifyContent).join("', '")}'.`
-      )
-    }
+    this.validateInput('layoutJustify', justifyContent);
 
     return this.layoutJustify;
   }
 
   static getPropertyNames(data: Object): Array<string> {
     return Object.getOwnPropertyNames(data).filter((number) => !Number(number));
+  }
+
+  private validateInput(variable: string, collection: Object) {
+    if (!collection[this[variable]]) {
+      const items = LayoutDirective.getPropertyNames(collection);
+
+      throw new Error(
+        `Invalid '${variable}' attribute value '${this[variable]}', use one of following: '${items.join("', '")}'.`
+      )
+    }
   }
 }
