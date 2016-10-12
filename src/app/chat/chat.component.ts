@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import * as firebase from 'firebase';
 import { ViewChild } from '@angular/core/src/metadata/di';
-import { Observable } from 'rxjs';
 
 interface chatItem {
   $key: string,
@@ -21,7 +20,7 @@ interface chatItem {
 export class ChatComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  private items: Observable<any[]>;
+  private items: FirebaseListObservable<chatItem[]>;
   private nick: string = '';
   private message: string = '';
 
