@@ -33,7 +33,15 @@ export class AuthenticationGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.auth
       .take(1)
-      .map((authState: FirebaseAuthState) => !!authState)
+      .map((authState: FirebaseAuthState) => {
+        if (!!authState) {
+          localStorage.setItem('uid', authState.uid);
+        } else {
+          localStorage.removeItem('uid');
+        }
+
+        return !!authState;
+      })
       .do(authenticated => {
         if (!authenticated) {
           this.router.navigate(['/login']);
