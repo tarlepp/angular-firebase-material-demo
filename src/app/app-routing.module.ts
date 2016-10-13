@@ -1,50 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AboutComponent } from './about/about.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { ListComponent } from './todos/list/list.component';
-import { LoginComponent } from './login/login.component';
-import { ChatComponent } from './chat/chat.component';
+import { AboutRoutes } from './about/';
+import { ChatRoutes } from './chat/';
+import { LayoutRoutes } from './layout/';
+import { LoginRoutes } from './login/';
+import { TodosRoutes } from './todos/';
 
-const routes = [
-  {
-    path: '',
-    component: HeaderComponent,
-    outlet: 'header'
-  },
-  {
-    path: '',
-    component: FooterComponent,
-    outlet: 'footer'
-  },
+const appRoutes = [
   {
     path: '',
     pathMatch: 'full',
     redirectTo: 'about',
   },
-  {
-    path: 'about',
-    component: AboutComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'todos',
-    component: ListComponent,
-  },
-  {
-    path: 'chat',
-    component: ChatComponent,
-  }
+  ...AboutRoutes,
+  ...ChatRoutes,
+  ...LayoutRoutes,
+  ...LoginRoutes,
+  ...TodosRoutes,
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [
     RouterModule
