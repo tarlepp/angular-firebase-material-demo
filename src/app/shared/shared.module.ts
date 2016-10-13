@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { Directives } from './directives/'
+import { AuthenticationModule } from './authentication/authentication.module';
+import { Directives } from './directives/';
 
 @NgModule({
   declarations: [
@@ -9,6 +10,7 @@ import { Directives } from './directives/'
   ],
   imports: [
     CommonModule,
+    AuthenticationModule.forRoot(),
   ],
   exports: [
     CommonModule,
