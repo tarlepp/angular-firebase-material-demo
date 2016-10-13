@@ -16,8 +16,7 @@ import { config } from './config/config';
 import { ListComponent } from './todos/list/list.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
-import { LayoutDirective } from './shared/layout.directive';
-import { FlexDirective } from './shared/flex.directive';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -28,17 +27,16 @@ import { FlexDirective } from './shared/flex.directive';
     ListComponent,
     LoginComponent,
     ChatComponent,
-    LayoutDirective,
-    FlexDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(config.FIREBASE_CONFIG, config.FIREBASE_AUTH_CONFIG),
     MomentModule,
+    AppRoutingModule,
+    SharedModule,
   ],
   providers: [
     MdIconRegistry,
