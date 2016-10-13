@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { Router } from '@angular/router';
-import * as firebase from 'firebase';
+import { FirebaseListObservable } from 'angularfire2';
+import { ActivatedRoute } from '@angular/router';
 
 interface todoItem {
   $key: string,
@@ -21,18 +20,11 @@ export class ListComponent implements OnInit {
   private todos: FirebaseListObservable<todoItem[]>;
   private todo: string = '';
 
-  constructor(
-    public af: AngularFire,
-    public router: Router
-  ) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.af.auth.subscribe(auth => {
-      if (auth) {
-        this.todos = this.af.database.list('/todos/' +  auth.uid);
-      } else {
-        this.router.navigateByUrl('/login');
-      }
+    this.activatedRoute.data.subscribe(data => {
+      this.todos = data['todos'];
     });
   }
 

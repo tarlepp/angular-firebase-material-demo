@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { AuthenticationGuard } from './../../shared';
 import { ListComponent } from './list.component';
+import { TodosResolver } from './todos.resolver';
 
 export const TodosListRoutes: Routes = [
   {
@@ -10,5 +11,8 @@ export const TodosListRoutes: Routes = [
     canActivate: [
       AuthenticationGuard,
     ],
+    resolve: {
+      todos: TodosResolver
+    }
   },
 ];

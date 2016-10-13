@@ -17,6 +17,7 @@ import { ListComponent } from './todos/list/list.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
 import { SharedModule } from './shared/shared.module';
+import { TodosResolver } from './todos/list/todos.resolver';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   providers: [
     MdIconRegistry,
+    TodosResolver
   ],
   bootstrap: [
     AppComponent,
