@@ -34,11 +34,7 @@ export class AuthenticationGuard implements CanActivate {
     return this.auth
       .take(1)
       .map((authState: FirebaseAuthState) => {
-        if (!!authState) {
-          localStorage.setItem('uid', authState.uid);
-        } else {
-          localStorage.removeItem('uid');
-        }
+        !!authState ? localStorage.setItem('uid', authState.uid) : localStorage.removeItem('uid');
 
         return !!authState;
       })
