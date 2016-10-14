@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -20,6 +21,7 @@ import { config } from '../config/config';
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     AuthenticationModule.forRoot(),
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(config.FIREBASE_CONFIG, config.FIREBASE_AUTH_CONFIG),
@@ -33,6 +35,7 @@ import { config } from '../config/config';
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     AuthenticationModule,
     MaterialModule,
     AngularFireModule,
