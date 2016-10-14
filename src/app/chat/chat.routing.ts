@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { AuthenticationGuard } from './../shared';
 import { ChatComponent } from './chat.component';
+import { ChatResolver } from './chat.resolver';
 
 export const ChatRoutes: Routes = [
   {
@@ -10,5 +11,8 @@ export const ChatRoutes: Routes = [
     canActivate: [
       AuthenticationGuard,
     ],
-  }
+    resolve: {
+      messages: ChatResolver,
+    },
+  },
 ];

@@ -1,12 +1,12 @@
 <div class="fill-2">
-  <div class="container" #scrollMe>
+  <div #list class="container" [scrollTop]="list.scrollHeight">
     <md-list>
-      <md-list-item *ngFor="let item of items | async">
+      <md-list-item *ngFor="let message of messages | async">
         <h3 md-line>
-          <span>{{((item.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm:ss'}}</span>
-          {{item.nick}}
+          <span>{{((message.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm:ss'}}</span>
+          {{message.nick}}
         </h3>
-        <span md-line>{{item.message}}</span>
+        <span md-line>{{message.message}}</span>
       </md-list-item>
     </md-list>
   </div>
