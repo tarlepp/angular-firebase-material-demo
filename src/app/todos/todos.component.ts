@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseListObservable } from 'angularfire2';
 import { ActivatedRoute } from '@angular/router';
+import { FirebaseListObservable } from 'angularfire2';
 
-interface todoItem {
-  $key: string,
-  todo: string,
-  done: boolean,
-  createdAt: number,
-  updatedAt: number,
-}
+import { TodoItem } from './todo-item.interface';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  selector: 'app-todos',
+  templateUrl: './todos.component.html',
+  styleUrls: ['./todos.component.scss']
 })
 
-export class ListComponent implements OnInit {
-  private todos: FirebaseListObservable<todoItem[]>;
+export class TodosComponent implements OnInit {
+  private todos: FirebaseListObservable<TodoItem[]>;
   private todo: string = '';
 
+  /**
+   * Constructor of the class
+   *
+   * @param {ActivatedRoute}  activatedRoute
+   */
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -40,7 +39,7 @@ export class ListComponent implements OnInit {
     this.todo = '';
   }
 
-  toggleStatus(item: todoItem) {
+  toggleStatus(item: TodoItem) {
     this.todos.update(
       item.$key,
       {
@@ -50,7 +49,7 @@ export class ListComponent implements OnInit {
     );
   }
 
-  remove(item: todoItem) {
+  remove(item: TodoItem) {
     this.todos.remove(item.$key);
   }
 }

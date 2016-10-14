@@ -1,7 +1,18 @@
 import { Routes } from '@angular/router';
 
-import { TodosListRoutes } from './list/list.routing';
+import { AuthenticationGuard } from './../shared';
+import { TodosComponent } from './todos.component';
+import { TodosResolver } from './todos.resolver';
 
 export const TodosRoutes: Routes = [
-  ...TodosListRoutes
+  {
+    path: 'todos',
+    component: TodosComponent,
+    canActivate: [
+      AuthenticationGuard,
+    ],
+    resolve: {
+      todos: TodosResolver
+    }
+  },
 ];
