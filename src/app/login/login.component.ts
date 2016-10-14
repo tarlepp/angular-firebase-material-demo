@@ -1,7 +1,6 @@
-import * as firebase from 'firebase'; // See https://github.com/angular/angularfire2/issues/529
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 import { Router } from '@angular/router';
+import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +10,12 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
   constructor(
-    public af: AngularFire,
-    public router: Router
+    private angularFire: AngularFire,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.af.auth.subscribe(auth => {
+    this.angularFire.auth.subscribe(auth => {
       if (auth && auth.uid) {
         this.router.navigateByUrl('/about');
       }
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(provider: string) {
-    this.af.auth
+    this.angularFire.auth
       .login({
         provider: AuthProviders[provider],
         method: AuthMethods.Popup,
