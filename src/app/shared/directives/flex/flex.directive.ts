@@ -2,15 +2,15 @@
  * Generic directive to attach flex style property to any element. Examples;
  *
  *  <div appFlex></div>
- *    => <div style="flex: 1 1 0%;"></div>
+ *    => <div style="flex: 1 1 auto;"></div>
  *
  *  <div appFlex="10"></div>
  *    => <div style="flex: 1 1 10%;"></div>
  *
- *  <div appFlex="10" appGrow="2"></div>
+ *  <div appFlex="10" appFlexGrow="2"></div>
  *    => <div style="flex: 2 1 10%;"></div>
  *
- *  <div appFlex="10" appShrink="2"></div>
+ *  <div appFlex="10" appFlexShrink="2"></div>
  *    => <div style="flex: 1 2 10%;"></div>
  *
  * More information about each CSS property that directive uses;
@@ -23,12 +23,12 @@ import { Directive, Input, HostBinding } from '@angular/core';
 })
 
 export class FlexDirective {
-  @Input() appShrink: number = 1;
-  @Input() appGrow: number = 1;
+  @Input() appFlexShrink: number = 1;
+  @Input() appFlexGrow: number = 1;
   @Input() appFlex: string;
 
   @HostBinding('style.flex')
   get style() {
-    return `${this.appGrow} ${this.appShrink} ${this.appFlex === '' ? '0' : this.appFlex}%`;
+    return `${this.appFlexGrow} ${this.appFlexShrink} ${this.appFlex === '' ? 'auto' : this.appFlex}`;
   }
 }
