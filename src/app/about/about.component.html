@@ -6,50 +6,41 @@
     show how powerful these components are together.
   </p>
 
-  <div class="row center-xs">
-    <div class="col-xs-12 col-sm-6">
+  <div appLayout="row">
+    <div>
       <h4>Used libraries</h4>
 
-      <div class="row center-xs">
-        <div class="box start-xs">
-          <md-list>
-            <md-list-item *ngFor="let item of libraries">
-              <img *ngIf="item.logo" md-list-avatar src="{{item.logo}}" alt="{{item.name}}" />
+      <md-list>
+        <md-list-item *ngFor="let item of libraries">
+          <img *ngIf="item.logo" md-list-avatar src="{{item.logo}}" alt="{{item.name}}" />
 
-              <md-icon *ngIf="!item.logo" md-list-avatar>filter_none</md-icon>
+          <md-icon *ngIf="!item.logo" md-list-avatar>filter_none</md-icon>
 
-              <h3 md-line> {{item.name}} </h3>
+          <h3 md-line> {{item.name}} </h3>
 
-              <p md-line>
-                <a href="{{item.url}}" target="_blank">{{item.url}}</a>
-              </p>
-            </md-list-item>
-          </md-list>
-        </div>
-      </div>
+          <p md-line>
+            <a href="{{item.url}}" target="_blank">{{item.url}}</a>
+          </p>
+        </md-list-item>
+      </md-list>
     </div>
 
-    <div class="col-xs-12 col-sm-6">
+    <div>
       <h4>External links</h4>
 
-      <div class="row center-xs">
-        <div class="box start-xs">
-          <md-list>
-            <md-list-item *ngFor="let item of externalLinks">
-              <img *ngIf="item.logo" md-list-avatar src="{{item.logo}}" alt="{{item.name}}" />
+      <md-list>
+        <md-list-item *ngFor="let item of externalLinks">
+          <img *ngIf="item.logo" md-list-avatar src="{{item.logo}}" alt="{{item.name}}" />
 
-              <md-icon *ngIf="!item.logo" md-list-avatar>filter_none</md-icon>
+          <md-icon *ngIf="!item.logo" md-list-avatar>filter_none</md-icon>
 
-              <h3 md-line>{{item.name}}</h3>
+          <h3 md-line>{{item.name}}</h3>
 
-              <p md-line>
-                <a href="{{item.url}}" target="_blank">{{item.url}}</a>
-              </p>
-            </md-list-item>
-          </md-list>
-        </div>
-      </div>
+          <p md-line>
+            <a href="{{item.url}}" target="_blank">{{item.url}}</a>
+          </p>
+        </md-list-item>
+      </md-list>
     </div>
-
   </div>
 </div>
