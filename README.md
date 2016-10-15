@@ -3,7 +3,7 @@
 [![devDependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo/dev-status.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo#info=devDependencies)
 
 ## What is this
-Just a small demo to show how to use [Angular2(https://angular.io/) + [Firebase](https://firebase.google.com/) + 
+Just a small demo to show how to use [Angular2](https://angular.io/) + [Firebase](https://firebase.google.com/) + 
 [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html) together. Currently
 this demo application contains following features:
  * Social media login (Facebook, Twitter, Google+ and GitHub)
