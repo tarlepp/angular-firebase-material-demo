@@ -2,8 +2,7 @@
 [![Dependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo)
 [![devDependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo/dev-status.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo#info=devDependencies)
 
-Table of Contents
-=================
+## Table of Contents
 * [What is this](#what-is-this)
 * [Demo](#demo)
 * [Used libraries, guides, etc.](#used-libraries-guides-etc)
