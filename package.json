@@ -1,7 +1,13 @@
 {
   "name": "angular2-firebase-material-demo",
   "version": "0.0.0",
+  "author": "Tarmo Leppänen <tarmo.leppanen@protacon.com>",
   "license": "MIT",
+  "keywords": [
+    "angular2",
+    "firebase",
+    "material"
+  ],
   "angular-cli": {},
   "scripts": {
     "start": "ng serve --host 0.0.0.0 --port 3000",
@@ -24,7 +30,7 @@
     "angular2-moment": "1.0.0-beta.5",
     "angularfire2": "2.0.0-beta.5",
     "core-js": "2.4.1",
-    "firebase": "3.4.1",
+    "firebase": "3.5.0",
     "rxjs": "5.0.0-rc.1",
     "ts-helpers": "1.1.2",
     "zone.js": "0.6.25"
@@ -42,7 +48,7 @@
     "karma-jasmine": "1.0.2",
     "karma-remap-istanbul": "0.2.1",
     "protractor": "4.0.9",
-    "ts-node": "1.4.3",
+    "ts-node": "1.5.2",
     "tslint": "3.15.1",
     "typescript": "2.0.3"
   }
