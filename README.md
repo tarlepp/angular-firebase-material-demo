@@ -73,7 +73,8 @@ To start developing in the project run:
 
 ```bash
 npm run start
-``` OR
+``` 
+OR
 ```bash
 ng serve
 ```
