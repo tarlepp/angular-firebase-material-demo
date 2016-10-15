@@ -12,11 +12,9 @@ apt:
     - google-chrome-stable
 
 env:
-  - CHROME_BIN=google-chrome
-  - DISPLAY=:99.0
+  - CHROME_BIN=google-chrome, DISPLAY=:99.0
 
 before_install:
-  — sh -e /etc/init.d/xvfb start
 
 before_script:
   - npm install -g angular-cli
