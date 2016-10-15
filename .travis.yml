@@ -11,8 +11,11 @@ apt:
   packages:
     - google-chrome-stable
 
+env:
+  - CHROME_BIN=google-chrome
+  - DISPLAY=:99.0
+
 before_install:
-  — export DISPLAY=:99.0
   — sh -e /etc/init.d/xvfb start
 
 before_script:
