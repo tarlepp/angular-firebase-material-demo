@@ -30,3 +30,12 @@ md-checkbox {
     margin: 0;
   }
 }
+
+:host /deep/ .md-list-item {
+  height: auto;
+  padding: 4px 0;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .06);
+  }
+}
