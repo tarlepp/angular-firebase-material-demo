@@ -2,9 +2,21 @@ h2 {
   margin-bottom: 0;
 }
 
+h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 14px;
+}
+
+p {
+  margin: 0;
+}
+
 md-checkbox {
   position: relative;
   top: -8px;
+  margin-right: 8px;
 }
 
 .done {

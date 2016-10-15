@@ -32,7 +32,7 @@
           (change)="toggleStatus(item)"
         ></md-checkbox>
 
-        <div md-line appFlex>
+        <div appFlex="100%">
           <h3>{{item.todo}}</h3>
           <p>
             Created: {{((item.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm'}}
@@ -43,11 +43,13 @@
           </p>
         </div>
 
-        <button md-mini-fab color="warn"
-          (click)="remove(item)"
-        >
-          <md-icon>clear</md-icon>
-        </button>
+        <div appFlex="40px">
+          <button md-mini-fab color="warn"
+            (click)="remove(item)"
+          >
+            <md-icon>clear</md-icon>
+          </button>
+        </div>
       </div>
     </md-list-item>
   </md-list>
