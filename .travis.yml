@@ -7,6 +7,7 @@ node_js:
 services:
 
 before_script:
+ - "npm i -g process-nextick-args util-deprecate"
 
 notifications:
   email: true
