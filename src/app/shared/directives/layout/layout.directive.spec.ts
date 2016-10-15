@@ -46,7 +46,7 @@ describe('Directive: Layout', () => {
   it('should thrown an exception with invalid \'appLayoutJustify\' attribute value.', () => {
     @Component({
       selector: 'app-test-cmp',
-      template: '<div appLayout="column" appLayoutJustify="space-around"></div>',
+      template: '<div appLayout="column" appLayoutJustify="foobar"></div>',
     })
     class TestComponent { }
 
