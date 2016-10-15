@@ -1,4 +1,3 @@
-/* tslint:disable:no-unused-variable */
 import { Component } from '@angular/core/src/metadata/directives';
 import { TestBed } from '@angular/core/testing';
 import { LayoutDirective } from './layout.directive';
@@ -47,7 +46,7 @@ describe('Directive: Layout', () => {
   it('should thrown an exception with invalid \'appLayoutJustify\' attribute value.', () => {
     @Component({
       selector: 'app-test-cmp',
-      template: '<div appLayout="column" appLayoutJustify="foobar"></div>',
+      template: '<div appLayout="column" appLayoutJustify="space-around"></div>',
     })
     class TestComponent { }
 
