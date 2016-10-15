@@ -24,10 +24,6 @@ export class AboutComponent {
       url: 'https://github.com/angular/angularfire2',
     },
     {
-      name: 'Flexbox Grid',
-      url: 'https://github.com/kristoferjoseph/flexboxgrid',
-    },
-    {
       name: 'angular2-moment',
       url: 'https://github.com/urish/angular2-moment',
     },
