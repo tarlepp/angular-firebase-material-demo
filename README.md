@@ -43,7 +43,7 @@ To get Firebase running as it should first you need to make new Firebase applica
 their website [https://firebase.google.com/](https://firebase.google.com/).
 
 After you have created new application you need to make some [security rules](https://firebase.google.com/docs/database/security/quickstart) 
-for the used data storage. Below is configuration that my demo application uses, so you can use the same within your 
+for the used data storage. Below is configuration that this demo application uses, so you can use the same within your 
 application.
 
 ```
