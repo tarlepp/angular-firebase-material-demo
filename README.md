@@ -2,6 +2,26 @@
 [![Dependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo)
 [![devDependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo/dev-status.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo#info=devDependencies)
 
+Table of Contents
+=================
+* [What is this](#what-is-this)
+* [Demo](#demo)
+* [Used libraries, guides, etc.](#used-libraries-guides-etc)
+  * [Libraries](#libraries)
+  * [Guides](#guides)
+  * [Other resources](#other-resources)
+* [Installation](#installation)
+  * [Configuration](#configuration)
+  * [Firebase](#firebase)
+* [Development](#development)
+* [Tests](#tests)
+  * [Unit tests](#unit-tests)
+  * [e2e tests](#e2e-tests)
+* [Build](#build)
+* [Deploying to Github Pages](#deploying-to-github-pages)
+* [Author](#author)
+* [License](#license)
+
 ## What is this
 Just a small demo to show how to use [Angular2](https://angular.io/) + [Firebase](https://firebase.google.com/) + 
 [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html) together. Currently
