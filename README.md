@@ -41,6 +41,7 @@ This is coming later...
  * [Material Design for Angular 2](https://github.com/angular/material2)
  * [AngularFire2](https://github.com/angular/angularfire2)
  * [angular2-moment](https://github.com/urish/angular2-moment)
+ * [Angular-CLI](https://github.com/angular/angular-cli)
  
 ### Guides
  * [Angular 2 style guide](https://angular.io/docs/ts/latest/guide/style-guide.html)
