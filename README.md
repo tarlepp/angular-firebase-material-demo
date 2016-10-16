@@ -1,4 +1,5 @@
 # Angular2/Firebase/Material - Demo
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Dependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo)
 [![devDependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo/dev-status.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo#info=devDependencies)
 
@@ -124,6 +125,6 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 Tarmo Leppänen
 
 ## License
-The MIT License (MIT)
+[The MIT License (MIT)](LICENSE)
 
 Copyright (c) 2016 Tarmo Leppänen
