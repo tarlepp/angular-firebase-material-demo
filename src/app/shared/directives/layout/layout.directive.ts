@@ -5,10 +5,10 @@
  *  <div appLayout="row"></div>
  *    => <div style="display: flex; flex-direction: row;"></div>
  *
- *  <div appLayout="column" appLayoutAlign="center></div>
+ *  <div appLayout="column" appLayoutAlign="center"></div>
  *    => <div style="display: flex; flex-direction: column; align-items: center;"></div>
  *
- *  <div appLayout="column" appLayoutJustify="space-around></div>
+ *  <div appLayout="column" appLayoutJustify="space-around"></div>
  *    => <div style="display: flex; flex-direction: column; justify-content: space-around;"></div>
  *
  * More information about each CSS property that directive uses;
@@ -19,65 +19,63 @@
  */
 import { Directive, Input, HostBinding } from '@angular/core';
 
-enum flexDirection {
-  'row' = 1,
-  'row-reverse',
-  'column',
-  'column-reverse',
-}
-
-enum alignItems {
-  'flex-start' = 1,
-  'flex-end',
-  'center',
-  'baseline',
-  'stretch',
-}
-
-enum justifyContent {
-  'flex-start' = 1,
-  'flex-end',
-  'center',
-  'space-between',
-  'space-around',
-}
+import { FlexDirection } from './flex-direction.enum';
+import { AlignItems } from './align-items.enum';
+import { JustifyContent } from './justify-content.enum';
 
 @Directive({
   selector: '[appLayout]'
 })
 
 export class LayoutDirective {
-  @Input() appLayout: flexDirection;
-  @Input() appLayoutAlign: alignItems = alignItems['stretch'];
-  @Input() appLayoutJustify: justifyContent = justifyContent['flex-start'];
+  // Used input attributes
+  @Input() appLayout: FlexDirection;
+  @Input() appLayoutAlign: AlignItems = AlignItems['stretch'];
+  @Input() appLayoutJustify: JustifyContent = JustifyContent['flex-start'];
 
+  // Bind 'style="display: flex;"' to current element.
   @HostBinding('style.display') display = 'flex';
 
+  // Bind 'style="flex-direction: row|row-reverse|column|column-reverse"' to current element
   @HostBinding('style.flex-direction')
   get flexDirection() {
-    this.validateInput('appLayout', flexDirection);
+    this.validateInput('appLayout', FlexDirection);
 
     return this.appLayout;
   }
 
+  // Bind 'style="flex-direction: flex-start|flex-end|center|baseline|stretch"' to current element
   @HostBinding('style.align-items')
   get alignItems() {
-    this.validateInput('appLayoutAlign', alignItems);
+    this.validateInput('appLayoutAlign', AlignItems);
 
     return this.appLayoutAlign;
   }
 
+  // Bind 'style="flex-direction: flex-start|flex-end|center|space-between|space-around"' to current element
   @HostBinding('style.justify-content')
   get justifyContent() {
-    this.validateInput('appLayoutJustify', justifyContent);
+    this.validateInput('appLayoutJustify', JustifyContent);
 
     return this.appLayoutJustify;
   }
 
+  /**
+   * Helper method to get property names from given object.
+   *
+   * @param {Object}  data
+   * @returns {string[]}
+   */
   static getPropertyNames(data: Object): Array<string> {
     return Object.getOwnPropertyNames(data).filter((number) => !Number(number));
   }
 
+  /**
+   * Helper method to validate given attribute input values.
+   *
+   * @param {string}  variable
+   * @param {Object}  collection
+   */
   private validateInput(variable: string, collection: Object) {
     if (!collection[this[variable]]) {
       const items = LayoutDirective.getPropertyNames(collection);
