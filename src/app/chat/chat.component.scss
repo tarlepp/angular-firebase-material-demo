@@ -15,7 +15,18 @@
 }
 
 h3 {
-  span {
-    font-family: monospace;
-  }
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+:host /deep/ .md-list-item {
+  height: auto;
+  padding: 4px 0;
 }

@@ -1,12 +1,18 @@
 <div class="outer">
   <div class="container" #list [scrollTop]="list.scrollHeight">
-    <md-list class="message">
+    <md-list class="normal-content">
       <md-list-item *ngFor="let message of messages | async">
-        <h3 md-line>
-          <span>{{((message.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm:ss'}}</span>
-          {{message.nick}}
-        </h3>
-        <span md-line>{{message.message}}</span>
+        <div appLayout="row" appLayoutAlign="center" appFlex>
+          <div appFlex="100%">
+            <h3>
+              <span>{{((message.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm:ss'}}</span>
+              {{message.nick}}
+            </h3>
+            <p>
+              {{message.message}}
+            </p>
+          </div>
+        </div>
       </md-list-item>
     </md-list>
   </div>
