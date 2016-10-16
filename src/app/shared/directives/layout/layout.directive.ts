@@ -5,10 +5,10 @@
  *  <div appLayout="row"></div>
  *    => <div style="display: flex; flex-direction: row;"></div>
  *
- *  <div appLayout="column" appLayoutAlign="center"></div>
+ *  <div appLayout="column" data-appLayoutAlign="center"></div>
  *    => <div style="display: flex; flex-direction: column; align-items: center;"></div>
  *
- *  <div appLayout="column" appLayoutJustify="space-around"></div>
+ *  <div appLayout="column" data-appLayoutJustify="space-around"></div>
  *    => <div style="display: flex; flex-direction: column; justify-content: space-around;"></div>
  *
  * More information about each CSS property that directive uses;
