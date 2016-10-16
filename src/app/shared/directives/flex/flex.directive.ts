@@ -10,8 +10,8 @@
  *  <div appFlex="10" appFlexGrow="2"></div>
  *    => <div style="flex: 2 1 10%;"></div>
  *
- *  <div appFlex="10" appFlexShrink="2"></div>
- *    => <div style="flex: 1 2 10%;"></div>
+ *  <div appFlex="10" data-appFlexShrink="0"></div>
+ *    => <div style="flex: 1 0 10%;"></div>
  *
  * More information about each CSS property that directive uses;
  *  http://www.w3schools.com/cssref/css3_pr_flex.asp
