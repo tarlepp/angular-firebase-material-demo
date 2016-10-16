@@ -1,5 +1,6 @@
 # Angular2/Firebase/Material - Demo
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Build Status](https://travis-ci.org/tarlepp/angular2-firebase-material-demo.png?branch=master)](https://travis-ci.org/tarlepp/angular2-firebase-material-demo)
 [![Dependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo)
 [![devDependency Status](https://david-dm.org/tarlepp/angular2-firebase-material-demo/dev-status.svg)](https://david-dm.org/tarlepp/angular2-firebase-material-demo#info=devDependencies)
 
