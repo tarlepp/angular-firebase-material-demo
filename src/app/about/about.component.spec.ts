@@ -1,13 +1,38 @@
-/* tslint:disable:no-unused-variable */
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
-import { TestBed, async } from '@angular/core/testing';
 import { AboutComponent } from './about.component';
+import { SharedModule } from '../shared/shared.module';
 
 describe('Component: About', () => {
-  /*
-  it('should create an instance', () => {
-     let component = new AboutComponent();
-     expect(component).toBeTruthy();
+  let fixture: ComponentFixture<AboutComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AboutComponent,
+      ],
+      imports: [
+        SharedModule,
+      ],
+    });
+
+    fixture = TestBed.createComponent(AboutComponent);
   });
-  */
+
+  it('should render expected count \'Used libraries\' items', () => {
+    fixture.detectChanges();
+
+    let mdListElements = fixture.debugElement.query(By.css('.used-libraries')).children;
+
+    expect(mdListElements.length).toEqual(fixture.componentInstance.libraries.length);
+  });
+
+  it('should render expected count \'External links\' items', () => {
+    fixture.detectChanges();
+
+    let mdListElements = fixture.debugElement.query(By.css('.external-links')).children;
+
+    expect(mdListElements.length).toEqual(fixture.componentInstance.externalLinks.length);
+  });
 });
