@@ -1,3 +1,3 @@
-export * from './chat.component';
-export * from './chat.routing';
-export * from './chat.resolver';
+export * from './entry/'
+export * from './room/'
+export * from './chat.routing'

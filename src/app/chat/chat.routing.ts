@@ -1,18 +1,9 @@
 import { Routes } from '@angular/router';
 
-import { AuthenticationGuard } from './../shared';
-import { ChatComponent } from './chat.component';
-import { ChatResolver } from './chat.resolver';
+import { RoomRoutes } from './room/room.routing';
+import { EntryRoutes } from './entry/entry.routing';
 
 export const ChatRoutes: Routes = [
-  {
-    path: 'chat',
-    component: ChatComponent,
-    canActivate: [
-      AuthenticationGuard,
-    ],
-    resolve: {
-      messages: ChatResolver,
-    },
-  },
+  ...EntryRoutes,
+  ...RoomRoutes,
 ];

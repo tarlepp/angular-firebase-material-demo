@@ -1,23 +1,19 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core/src/metadata/ng_module';
 
-import { SharedModule } from './../shared/shared.module'
-import { ChatComponent, ChatResolver } from './index';
+import { RoomModule } from './room/room.module';
+import { EntryModule } from './entry/entry.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
-  ],
-  declarations: [
-    ChatComponent,
+    EntryModule,
+    RoomModule,
   ],
   exports: [
-    ChatComponent,
+    EntryModule,
+    RoomModule,
   ],
-  providers: [
-    ChatResolver,
-  ]
 })
 
 export class ChatModule { }

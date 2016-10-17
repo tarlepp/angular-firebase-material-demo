@@ -6,7 +6,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { ChatItem } from './chat-item.interface';
 
 @Injectable()
-export class ChatResolver implements Resolve<any> {
+export class MessageResolver implements Resolve<any> {
   /**
    * Constructor of the class.
    *
