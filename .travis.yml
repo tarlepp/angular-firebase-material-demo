@@ -6,13 +6,13 @@ language: node_js
 
 # Node.js versions that we're testing
 node_js:
-  - "stable"
+#  - "stable"
   - "6"
 
 # OS that we're testing
 os:
   - linux
-  - osx
+#  - osx
 
 # Before install we need to do some OS specified stuff
 before_install:
@@ -40,3 +40,6 @@ notifications:
 branches:
   only:
     - master
+
+after_success:
+  - cat coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
