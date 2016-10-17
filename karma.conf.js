@@ -7,6 +7,7 @@ module.exports = function (config) {
     frameworks: ['jasmine', 'angular-cli'],
     plugins: [
       require('karma-jasmine'),
+      require('karma-mocha-reporter'),
       require('karma-chrome-launcher'),
       require('karma-remap-istanbul'),
       require('angular-cli/plugins/karma')
@@ -27,7 +28,7 @@ module.exports = function (config) {
       config: './angular-cli.json',
       environment: 'dev'
     },
-    reporters: ['progress', 'karma-remap-istanbul'],
+    reporters: ['karma-remap-istanbul', 'mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
