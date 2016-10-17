@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { MaterialModule, MdIconRegistry } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { MomentModule } from 'angular2-moment';
+import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { AuthenticationModule } from './authentication/authentication.module';
 import { Directives } from './directives/';
@@ -26,6 +27,7 @@ import { config } from '../config/config';
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(config.FIREBASE_CONFIG, config.FIREBASE_AUTH_CONFIG),
     MomentModule,
+    Ng2Webstorage,
   ],
   providers: [
     MdIconRegistry,
@@ -40,6 +42,7 @@ import { config } from '../config/config';
     MaterialModule,
     AngularFireModule,
     MomentModule,
+    Ng2Webstorage,
     ...Directives,
   ],
 })
