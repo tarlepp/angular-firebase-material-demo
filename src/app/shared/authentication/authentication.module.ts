@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 
-import { config } from './../../config/config';
+import { Config } from './../../config/config';
 import { AuthenticationGuard } from './authentication.guard';
 
 /**
@@ -9,7 +9,7 @@ import { AuthenticationGuard } from './authentication.guard';
  */
 @NgModule({
   imports: [
-    AngularFireModule.initializeApp(config.FIREBASE_CONFIG, config.FIREBASE_AUTH_CONFIG),
+    AngularFireModule.initializeApp(Config.FIREBASE_CONFIG, Config.FIREBASE_AUTH_CONFIG),
   ],
 })
 

@@ -11,7 +11,7 @@ import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { AuthenticationModule } from './authentication/authentication.module';
 import { Directives } from './directives/';
-import { config } from '../config/config';
+import { Config } from '../config/config';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { config } from '../config/config';
     RouterModule,
     AuthenticationModule.forRoot(),
     MaterialModule.forRoot(),
-    AngularFireModule.initializeApp(config.FIREBASE_CONFIG, config.FIREBASE_AUTH_CONFIG),
+    AngularFireModule.initializeApp(Config.FIREBASE_CONFIG, Config.FIREBASE_AUTH_CONFIG),
     MomentModule,
     Ng2Webstorage,
   ],

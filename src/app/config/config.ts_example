@@ -14,7 +14,7 @@ export const FIREBASE_AUTH_CONFIG = {
   method: AuthMethods.Redirect,
 };
 
-export class config {
+export class Config {
   public static FIREBASE_CONFIG = FIREBASE_CONFIG;
   public static FIREBASE_AUTH_CONFIG = FIREBASE_AUTH_CONFIG;
 }
