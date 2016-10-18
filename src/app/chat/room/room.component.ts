@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MdInput } from '@angular/material';
 import { FirebaseListObservable } from 'angularfire2';
 import { LocalStorageService } from 'ng2-webstorage';
 
@@ -12,6 +13,8 @@ import { ChatItem } from './chat-item.interface';
 })
 
 export class RoomComponent implements OnInit {
+  @ViewChild('messageControl') messageControl: MdInput;
+
   private messages: FirebaseListObservable<ChatItem[]>;
   private nick: string = '';
   private message: string = '';
@@ -27,6 +30,8 @@ export class RoomComponent implements OnInit {
       this.messages = data['messages'];
       this.nick = data['nick'];
     });
+
+    this.messageControl.focus();
   }
 
   addNewMessage() {
