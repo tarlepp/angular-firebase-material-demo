@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'ng2-webstorage';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { MdInput } from '@angular/material';
+import { LocalStorageService } from 'ng2-webstorage';
 
 @Component({
   selector: 'app-entry',
@@ -9,12 +10,16 @@ import { Router } from '@angular/router';
 })
 
 export class EntryComponent implements OnInit {
+  @ViewChild('nickControl') nickControl: MdInput;
+
   constructor(
     private localStorage: LocalStorageService,
     private router: Router
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.nickControl.focus();
+  }
 
   enterNick(nick: string) {
     this.localStorage.store('nick', nick);
