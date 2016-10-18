@@ -5,6 +5,7 @@ import { FirebaseListObservable } from 'angularfire2';
 import { LocalStorageService } from 'ng2-webstorage';
 
 import { ChatItem } from './chat-item.interface';
+import { Resolves } from './resolves.interface';
 
 @Component({
   selector: 'app-chat-room',
@@ -26,9 +27,9 @@ export class RoomComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(data => {
-      this.messages = data['messages'];
-      this.nick = data['nick'];
+    this.activatedRoute.data.subscribe((data: Resolves) => {
+      this.messages = data.messages;
+      this.nick = data.nick;
     });
 
     this.messageControl.focus();
