@@ -12,6 +12,15 @@ export class NickResolver implements Resolve<any> {
    */
   constructor(private localStorage: LocalStorageService) { }
 
+  /**
+   * Resolve method to get user nick for chat.
+   *
+   * Note that this method relies that 'RoomGuard' is run within route 'canActivate' block.
+   *
+   * @param {ActivatedRouteSnapshot}  route
+   * @param {RouterStateSnapshot}     state
+   * @returns {any|string}
+   */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from './../../shared/shared.module'
-import { RoomComponent, MessageResolver, NickResolver } from './index';
-import { RoomGuard } from './room.guard';
+import { RoomComponent, MessagesResolver, NickGuard, NickResolver } from './index';
 
 @NgModule({
   imports: [
@@ -17,8 +16,8 @@ import { RoomGuard } from './room.guard';
     RoomComponent,
   ],
   providers: [
-    RoomGuard,
-    MessageResolver,
+    MessagesResolver,
+    NickGuard,
     NickResolver,
   ]
 })

@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 
 import { AuthenticationGuard } from './../../shared';
 import { RoomComponent } from './room.component';
-import { MessageResolver } from './message.resolver';
+import { MessagesResolver } from './messages.resolver';
 import { NickResolver } from './nick.resolver';
-import { RoomGuard } from './room.guard';
+import { NickGuard } from './nick.guard';
 
 export const RoomRoutes: Routes = [
   {
@@ -12,10 +12,10 @@ export const RoomRoutes: Routes = [
     component: RoomComponent,
     canActivate: [
       AuthenticationGuard,
-      RoomGuard,
+      NickGuard,
     ],
     resolve: {
-      messages: MessageResolver,
+      messages: MessagesResolver,
       nick: NickResolver,
     },
   },
