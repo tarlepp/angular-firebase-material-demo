@@ -3,7 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-import { TodoItem } from './todo-item.interface';
+import { TodoItem } from '../interfaces/';
 
 @Injectable()
 export class TodosResolver implements Resolve<any> {

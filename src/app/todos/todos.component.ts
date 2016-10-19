@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2';
 
-import { TodoItem } from './todo-item.interface';
+import { TodoItem } from './interfaces/';
 
 @Component({
   selector: 'app-todos',

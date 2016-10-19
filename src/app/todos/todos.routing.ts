@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 import { AuthenticationGuard } from './../shared';
 import { TodosComponent } from './todos.component';
-import { TodosResolver } from './todos.resolver';
+import { TodosResolver } from './resolves/';
 
 export const TodosRoutes: Routes = [
   {
