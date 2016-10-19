@@ -3,7 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-import { ChatItem } from './chat-item.interface';
+import { ChatItem } from '../interfaces/chat-item.interface';
 
 @Injectable()
 export class MessagesResolver implements Resolve<any> {

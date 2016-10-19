@@ -4,8 +4,7 @@ import { MdInput } from '@angular/material';
 import { FirebaseListObservable } from 'angularfire2';
 import { LocalStorageService } from 'ng2-webstorage';
 
-import { ChatItem } from './chat-item.interface';
-import { Resolves } from './resolves.interface';
+import { ChatItem, Resolves } from './interfaces/';
 
 @Component({
   selector: 'app-chat-room',
