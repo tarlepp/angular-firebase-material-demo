@@ -35,6 +35,8 @@ this demo application contains following features:
 ## Demo
 Demo of this application can be found from [https://fir-todo-v3.firebaseapp.com/](https://fir-todo-v3.firebaseapp.com/).
 
+![QR code to demo application](https://raw.github.com/tarlepp/angular2-firebase-material-demo/master/qrcode.png)
+
 ## Used libraries, guides, etc.
 
 ### Libraries
