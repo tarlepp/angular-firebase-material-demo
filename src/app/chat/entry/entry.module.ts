@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from './../../shared/shared.module'
-import { EntryComponent } from './entry.component';
+import { EntryComponent, EntryGuard } from './index';
 
 @NgModule({
   imports: [
@@ -15,6 +15,9 @@ import { EntryComponent } from './entry.component';
   exports: [
     EntryComponent,
   ],
+  providers: [
+    EntryGuard,
+  ]
 })
 
 export class EntryModule { }
