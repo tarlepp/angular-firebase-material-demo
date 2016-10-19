@@ -1,5 +1,4 @@
 <div class="container" appLayout="column" data-appLayoutAlign="center" data-appLayoutJustify="center" appFlex>
-
     <form class="form-entry" #nickForm="ngForm" (submit)="enterNick(nickControl.value)" autocomplete="off"
       appLayout="column"
       data-appLayoutAlign="center"
@@ -14,12 +13,11 @@
 
         <div appFlex appFlexGrow="0">
           <button type="submit" md-icon-button color="primary"
-            [disabled]="nickForm.invalid"
+            [disabled]="!nickControl.value"
           >
             <md-icon>send</md-icon>
           </button>
         </div>
       </div>
     </form>
-
 </div>
