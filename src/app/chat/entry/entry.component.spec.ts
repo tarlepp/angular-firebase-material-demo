@@ -15,7 +15,7 @@ describe('Component: Entry', () => {
     };
 
     const fakeRouter = {
-      navigateByUrl: (url: string) => url,
+      navigateByUrl: (url: string) => { console.log('--', url); return url; },
     };
 
     TestBed.configureTestingModule({
@@ -65,6 +65,50 @@ describe('Component: Entry', () => {
       fixture.detectChanges();
 
       expect(button.disabled).toBe(false, 'submit button is not enabled');
+    });
+
+    it('should store nick to local storage on submit', () => {
+      const localStorageService = fixture.debugElement.injector.get(LocalStorageService);
+
+      spyOn(localStorageService, 'store');
+
+      fixture.detectChanges();
+
+      const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
+      const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
+      const form = fixture.debugElement.query(By.css('form'));
+
+      // Fake a `change` event being triggered.
+      inputElement.value = 'new nick';
+      input._handleChange(<any> {target: inputElement});
+
+      form.triggerEventHandler('submit', null);
+
+      fixture.detectChanges();
+
+      expect(localStorageService.store).toHaveBeenCalled();
+    });
+
+    it('should redirect user to chat on submit', () => {
+      const router = fixture.debugElement.injector.get(Router);
+
+      spyOn(router, 'navigateByUrl');
+
+      fixture.detectChanges();
+
+      const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
+      const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
+      const form = fixture.debugElement.query(By.css('form'));
+
+      // Fake a `change` event being triggered.
+      inputElement.value = 'new nick';
+      input._handleChange(<any> {target: inputElement});
+
+      form.triggerEventHandler('submit', null);
+
+      fixture.detectChanges();
+
+      expect(router.navigateByUrl).toHaveBeenCalledWith('/chat');
     });
   });
 });
