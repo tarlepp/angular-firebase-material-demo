@@ -16,8 +16,8 @@ class StubLocalStorageService {
 }
 
 describe('Guard: EntryGuard', () => {
-  let route: any = {};
-  let state: any = {};
+  const route: any = {};
+  const state: any = {};
 
   beforeEach(() => {
     const fakeRouter = {
@@ -49,6 +49,19 @@ describe('Guard: EntryGuard', () => {
       storage.store('nick', 'foo');
 
       expect(guard.canActivate(route, state)).not.toBeTruthy();
+    })
+  );
+
+  it('should redirect user if nick is in local storage', inject(
+    [EntryGuard, LocalStorageService, Router],
+    (guard: EntryGuard, storage: LocalStorageService, router: Router) => {
+      spyOn(router, 'navigateByUrl');
+
+      storage.store('nick', 'foo');
+
+      guard.canActivate(route, state);
+
+      expect(router.navigateByUrl).toHaveBeenCalledWith('/chat');
     })
   );
 });
