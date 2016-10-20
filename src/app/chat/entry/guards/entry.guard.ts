@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { LocalStorageService } from 'ng2-webstorage';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class EntryGuard implements CanActivate {
@@ -16,10 +15,18 @@ export class EntryGuard implements CanActivate {
     private router: Router
   ) { }
 
+  /**
+   * Purpose of this guard is check if current user has not given nick for chat. If nick is found from local storage
+   * user will be redirected to actual chat and route that uses this guard cannot be activated.
+   *
+   * @param {ActivatedRouteSnapshot}  route
+   * @param {RouterStateSnapshot}     state
+   * @returns {boolean}
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean>|Promise<boolean>|boolean {
+  ): boolean {
     if (!this.localStorage.retrieve('nick')) {
       return true;
     }
