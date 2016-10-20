@@ -15,7 +15,7 @@ describe('Component: Entry', () => {
     };
 
     const fakeRouter = {
-      navigateByUrl: (url: string) => { console.log('--', url); return url; },
+      navigateByUrl: (url: string) => url,
     };
 
     TestBed.configureTestingModule({
