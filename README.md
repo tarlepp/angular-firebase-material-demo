@@ -104,7 +104,7 @@ OR
 ng serve
 ```
 
-Then head to `http://localhost:3000` in your browser.
+Then head to `http://localhost:4200` in your browser.
 
 ## Tests
 

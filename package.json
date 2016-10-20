@@ -10,7 +10,7 @@
   ],
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --host 0.0.0.0 --port 3000",
+    "start": "ng serve --host 0.0.0.0",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
