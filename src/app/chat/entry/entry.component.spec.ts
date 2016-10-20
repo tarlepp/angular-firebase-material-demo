@@ -65,6 +65,6 @@ describe('Component: Entry', () => {
       fixture.detectChanges();
 
       expect(button.disabled).toBe(false, 'submit button is not enabled');
-    })
+    });
   });
 });
