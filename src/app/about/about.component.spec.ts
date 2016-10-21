@@ -4,7 +4,7 @@ import { MaterialModule } from '@angular/material';
 
 import { AboutComponent } from './about.component';
 
-describe('Component: About', () => {
+describe('Component: /about/about.component.ts', () => {
   let fixture: ComponentFixture<AboutComponent>;
 
   beforeEach(() => {

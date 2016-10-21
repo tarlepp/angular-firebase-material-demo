@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { LayoutDirective } from './layout.directive';
 
-describe('Directive: appLayout', () => {
+describe('Directive: /shared/directives/layout/layout.directive.ts', () => {
   let fixture;
 
   it('should thrown an exception with invalid \'appLayout\' attribute value.', () => {

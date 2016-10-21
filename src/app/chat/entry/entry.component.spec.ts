@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LocalStorageService, Ng2Webstorage } from 'ng2-webstorage';
 import { Router } from '@angular/router';
 
-describe('Component: Entry', () => {
+describe('Component: /chat/entry/entry.component.ts', () => {
   let fixture: ComponentFixture<EntryComponent>;
 
   beforeEach(() => {

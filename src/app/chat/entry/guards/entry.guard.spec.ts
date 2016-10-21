@@ -15,7 +15,7 @@ class StubLocalStorageService {
   }
 }
 
-describe('Guard: EntryGuard', () => {
+describe('Guard: /chat/entry/guards/entry.guard.ts', () => {
   const route: any = {};
   const state: any = {};
 

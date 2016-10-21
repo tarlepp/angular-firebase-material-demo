@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { FlexDirective } from './flex.directive';
 
-describe('Directive: appFlex', () => {
+describe('Directive: /shared/directives/flex/flex.directive.ts', () => {
   let fixture;
 
   it('should add expected styles to element with minimum setup', () => {
