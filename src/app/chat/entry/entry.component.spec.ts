@@ -42,7 +42,7 @@ describe('Component: /chat/entry/entry.component.ts', () => {
     fixture = TestBed.createComponent(EntryComponent);
   });
 
-  it('does not allow to click submit button if no nick given', () => {
+  it('should not allow to click submit button if no nick given (button should be disabled)', () => {
     fixture.detectChanges();
 
     const button = fixture.debugElement.query(By.css('button'));
@@ -51,7 +51,7 @@ describe('Component: /chat/entry/entry.component.ts', () => {
   });
 
   describe('After entering nick', () => {
-    it('submit button should be enabled', () => {
+    it('should allow to click submit button (button should not be disabled)', () => {
       fixture.detectChanges();
 
       const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
