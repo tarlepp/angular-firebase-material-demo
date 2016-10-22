@@ -12,8 +12,8 @@ node_js:
 
 # OS that we're testing
 os:
-#  - linux
-  - osx
+  - linux
+#  - osx
 
 # Before install we need to do some OS specified stuff
 before_install:
