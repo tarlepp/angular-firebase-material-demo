@@ -8,10 +8,11 @@ language: node_js
 node_js:
   - "stable"
   - "6"
+  - "5"
 
 # OS that we're testing
 os:
-  - linux
+#  - linux
   - osx
 
 # Before install we need to do some OS specified stuff
