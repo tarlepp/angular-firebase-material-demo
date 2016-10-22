@@ -27,7 +27,7 @@
 
         <div appFlex appFlexGrow="0">
           <button type="submit" md-icon-button color="primary"
-            [disabled]="messageForm.invalid"
+            [disabled]="!messageControl.value"
           >
             <md-icon>send</md-icon>
           </button>
