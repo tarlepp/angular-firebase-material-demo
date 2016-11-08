@@ -1,4 +1,4 @@
-export interface TodoItem {
+export interface ITodoItem {
   $key: string,
   todo: string,
   done: boolean,

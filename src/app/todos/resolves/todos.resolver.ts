@@ -3,7 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import 'rxjs';
 
-import { TodoItem } from '../interfaces/';
+import { ITodoItem } from '../interfaces/';
 
 @Injectable()
 export class TodosResolver implements Resolve<any> {
@@ -21,12 +21,12 @@ export class TodosResolver implements Resolve<any> {
    *
    * @param {ActivatedRouteSnapshot}  route
    * @param {RouterStateSnapshot}     state
-   * @returns {Promise<FirebaseListObservable<TodoItem[]>>}
+   * @returns {Promise<FirebaseListObservable<ITodoItem[]>>}
    */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Promise<FirebaseListObservable<TodoItem[]>> {
+  ): Promise<FirebaseListObservable<ITodoItem[]>> {
     let list = this.angularFire.database.list('/todos/' + localStorage.getItem('uid'));
 
     return new Promise((resolve, reject) => {
