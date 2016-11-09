@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import 'rxjs';
 
 import { ChatItem } from '../interfaces/chat-item.interface';
 
@@ -21,21 +21,23 @@ export class MessagesResolver implements Resolve<any> {
    *
    * @param {ActivatedRouteSnapshot}  route
    * @param {RouterStateSnapshot}     state
-   * @returns {Observable<FirebaseListObservable<ChatItem[]>>}
+   * @returns {Promise<FirebaseListObservable<ChatItem[]>>}
    */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<FirebaseListObservable<ChatItem[]>> {
-    return Observable.of(
-      this.angularFire.database.list(
-        '/messages',
-        {
-          query: {
-            limitToLast: 100
-          }
+  ): Promise<FirebaseListObservable<ChatItem[]>> {
+    let list = this.angularFire.database.list(
+      '/messages/',
+      {
+        query: {
+          limitToLast: 100
         }
-      )
+      }
     );
+
+    return new Promise((resolve, reject) => {
+      list.first().subscribe(() => resolve(list), reject);
+    });
   }
 }
