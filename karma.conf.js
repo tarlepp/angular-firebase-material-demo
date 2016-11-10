@@ -4,36 +4,50 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', 'angular-cli'],
+    frameworks: [
+      'jasmine',
+      'angular-cli',
+    ],
     plugins: [
       require('karma-jasmine'),
       require('karma-mocha-reporter'),
       require('karma-chrome-launcher'),
+      require('karma-phantomjs-launcher'),
       require('karma-remap-istanbul'),
-      require('angular-cli/plugins/karma')
+      require('angular-cli/plugins/karma'),
     ],
     files: [
-      { pattern: './src/test.ts', watched: false }
+      {
+        pattern: './src/test.ts',
+        watched: false,
+      },
     ],
     preprocessors: {
-      './src/test.ts': ['angular-cli']
+      './src/test.ts': [
+        'angular-cli',
+      ],
     },
     remapIstanbulReporter: {
       reports: {
         html: 'coverage',
-        lcovonly: './coverage/coverage.lcov'
-      }
+        lcovonly: './coverage/coverage.lcov',
+      },
     },
     angularCli: {
       config: './angular-cli.json',
-      environment: 'dev'
+      environment: 'dev',
     },
-    reporters: ['karma-remap-istanbul', 'mocha'],
+    reporters: [
+      'karma-remap-istanbul',
+      'mocha',
+    ],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: [
+      'PhantomJS',
+    ],
     singleRun: false
   });
 };

@@ -49,6 +49,7 @@
     "karma-jasmine": "1.0.2",
     "karma-mocha-reporter": "2.2.0",
     "karma-remap-istanbul": "0.2.1",
+    "karma-phantomjs-launcher": "1.0.2",
     "protractor": "4.0.10",
     "ts-node": "1.7.0",
     "tslint": "3.15.1",
