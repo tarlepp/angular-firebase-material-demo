@@ -1,4 +1,4 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { EntryComponent } from './entry.component';
 import { By } from '@angular/platform-browser';
 import { MaterialModule, MdInput } from '@angular/material';
@@ -7,9 +7,10 @@ import { LocalStorageService, Ng2Webstorage } from 'ng2-webstorage';
 import { Router } from '@angular/router';
 
 describe('Component: /chat/entry/entry.component.ts', () => {
+  let component: EntryComponent;
   let fixture: ComponentFixture<EntryComponent>;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     const fakeLocalStorageService = {
       store: (nick: string) => nick,
     };
@@ -37,14 +38,22 @@ describe('Component: /chat/entry/entry.component.ts', () => {
           useValue: fakeRouter,
         },
       ]
-    });
+    })
+    .compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(EntryComponent);
+    component = fixture.componentInstance;
+
+    fixture.detectChanges();
+  });
+
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
   });
 
   it('should not allow to click submit button if no nick given (button should be disabled)', () => {
-    fixture.detectChanges();
-
     const button = fixture.debugElement.query(By.css('button'));
 
     expect(button.nativeElement.disabled).toBe(true, 'submit button is not disabled');
@@ -52,8 +61,6 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
   describe('After entering nick', () => {
     it('should allow to click submit button (button should not be disabled)', () => {
-      fixture.detectChanges();
-
       const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
       const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
       const button: HTMLButtonElement = fixture.debugElement.query(By.css('button')).nativeElement;
