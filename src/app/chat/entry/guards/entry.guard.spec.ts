@@ -1,7 +1,8 @@
 import { TestBed, inject} from '@angular/core/testing';
-import { EntryGuard } from './entry.guard';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ng2-webstorage';
+
+import { EntryGuard } from './entry.guard';
 
 class StubLocalStorageService {
   private data = {};
@@ -21,7 +22,7 @@ describe('Guard: /chat/entry/guards/entry.guard.ts', () => {
 
   beforeEach(() => {
     const fakeRouter = {
-      navigateByUrl: (url: string) => url,
+      navigate: (commands: any[]) => commands,
     };
 
     TestBed.configureTestingModule({
@@ -39,6 +40,21 @@ describe('Guard: /chat/entry/guards/entry.guard.ts', () => {
     });
   });
 
+  it('should create the guard', inject([EntryGuard], (guard: EntryGuard) => {
+    expect(guard).toBeTruthy();
+  }));
+
+  it('should try retrieve nick from local storage', inject(
+    [EntryGuard, LocalStorageService],
+    (guard: EntryGuard, storage: LocalStorageService) => {
+      spyOn(storage, 'retrieve');
+
+      guard.canActivate(route, state);
+
+      expect(storage.retrieve).toHaveBeenCalledWith('nick');
+    })
+  );
+
   it('should return true if nick isn\'t in local storage', inject([EntryGuard], (guard: EntryGuard) => {
     expect(guard.canActivate(route, state)).toBeTruthy();
   }));
@@ -55,13 +71,13 @@ describe('Guard: /chat/entry/guards/entry.guard.ts', () => {
   it('should redirect user if nick is in local storage', inject(
     [EntryGuard, LocalStorageService, Router],
     (guard: EntryGuard, storage: LocalStorageService, router: Router) => {
-      spyOn(router, 'navigateByUrl');
+      spyOn(router, 'navigate');
 
       storage.store('nick', 'foo');
 
       guard.canActivate(route, state);
 
-      expect(router.navigateByUrl).toHaveBeenCalledWith('/chat');
+      expect(router.navigate).toHaveBeenCalledWith(['/chat']);
     })
   );
 });

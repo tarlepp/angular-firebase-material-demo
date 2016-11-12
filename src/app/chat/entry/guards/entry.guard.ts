@@ -31,7 +31,7 @@ export class EntryGuard implements CanActivate {
       return true;
     }
 
-    this.router.navigateByUrl('/chat');
+    this.router.navigate(['/chat']);
 
     return false;
   }
