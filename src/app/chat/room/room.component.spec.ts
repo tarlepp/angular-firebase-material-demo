@@ -1,5 +1,4 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { RoomComponent } from './room.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocalStorageService, Ng2Webstorage } from 'ng2-webstorage';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +6,19 @@ import { MaterialModule, MdInput } from '@angular/material';
 import { MomentModule } from 'angular2-moment';
 import { By } from '@angular/platform-browser';
 
-class StubLocalStorageService { }
+import { RoomComponent } from './room.component';
+
+class StubLocalStorageService {
+  private data = {};
+
+  store(key: string, value: any): void {
+    this.data[key] = value;
+  }
+
+  retrieve(key: string): any {
+    return this.data[key];
+  }
+}
 
 class StubActivatedRoute {
   public data = {
@@ -23,9 +34,10 @@ class StubActivatedRoute {
 }
 
 describe('Component: /chat/room/room.component.ts', () => {
+  let component: RoomComponent;
   let fixture: ComponentFixture<RoomComponent>;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     const fakeRouter = {
       navigateByUrl: (url: string) => url,
     };
@@ -54,9 +66,15 @@ describe('Component: /chat/room/room.component.ts', () => {
           useClass: StubLocalStorageService,
         },
       ],
-    });
+    })
+    .compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(RoomComponent);
+    component = fixture.componentInstance;
+
+    fixture.detectChanges();
   });
 
   it('should create the component', async(() => {
@@ -66,8 +84,6 @@ describe('Component: /chat/room/room.component.ts', () => {
   }));
 
   it('should not allow to click submit button if no message given (button should be disabled)', () => {
-    fixture.detectChanges();
-
     const button: HTMLButtonElement = fixture.debugElement.query(By.css('button')).nativeElement;
 
     expect(button.disabled).toBe(true, 'submit button is not disabled');
@@ -75,8 +91,6 @@ describe('Component: /chat/room/room.component.ts', () => {
 
   describe('After entering message', () => {
     it('should allow to click submit button (button should not be disabled)', () => {
-      fixture.detectChanges();
-
       const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
       const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
       const button: HTMLButtonElement = fixture.debugElement.query(By.css('button')).nativeElement;
