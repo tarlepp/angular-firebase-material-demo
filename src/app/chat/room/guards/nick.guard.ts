@@ -34,7 +34,7 @@ export class NickGuard implements CanActivate {
       return true;
     }
 
-    this.router.navigateByUrl('/chat/entry');
+    this.router.navigate(['/chat/entry']);
 
     return false;
   }
