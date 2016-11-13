@@ -1,10 +1,11 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
-import { EntryComponent } from './entry.component';
 import { By } from '@angular/platform-browser';
-import { MaterialModule, MdInput } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { LocalStorageService, Ng2Webstorage } from 'ng2-webstorage';
 import { Router } from '@angular/router';
+import { MaterialModule, MdInput } from '@angular/material';
+import { LocalStorageService, Ng2Webstorage } from 'ng2-webstorage';
+
+import { EntryComponent } from './entry.component';
 
 describe('Component: /chat/entry/entry.component.ts', () => {
   let component: EntryComponent;
@@ -16,7 +17,7 @@ describe('Component: /chat/entry/entry.component.ts', () => {
     };
 
     const fakeRouter = {
-      navigateByUrl: (url: string) => url,
+      navigate: (commands: any) => commands,
     };
 
     TestBed.configureTestingModule({
@@ -76,14 +77,11 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
     it('should store nick to local storage on submit', () => {
       const localStorageService = fixture.debugElement.injector.get(LocalStorageService);
-
-      spyOn(localStorageService, 'store');
-
-      fixture.detectChanges();
-
       const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
       const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
       const form = fixture.debugElement.query(By.css('form'));
+
+      spyOn(localStorageService, 'store');
 
       // Fake a `change` event being triggered.
       inputElement.value = 'new nick';
@@ -98,14 +96,11 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
     it('should redirect user to chat on submit', () => {
       const router = fixture.debugElement.injector.get(Router);
-
-      spyOn(router, 'navigateByUrl');
-
-      fixture.detectChanges();
-
       const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
       const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
       const form = fixture.debugElement.query(By.css('form'));
+
+      spyOn(router, 'navigate');
 
       // Fake a `change` event being triggered.
       inputElement.value = 'new nick';
@@ -115,7 +110,7 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
       fixture.detectChanges();
 
-      expect(router.navigateByUrl).toHaveBeenCalledWith('/chat');
+      expect(router.navigate).toHaveBeenCalledWith(['/chat']);
     });
   });
 });

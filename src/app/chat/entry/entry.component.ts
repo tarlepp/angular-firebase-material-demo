@@ -38,6 +38,6 @@ export class EntryComponent implements OnInit {
   public enterNick(nick: string) {
     this.localStorage.store('nick', nick);
 
-    this.router.navigateByUrl('/chat');
+    this.router.navigate(['/chat']);
   }
 }
