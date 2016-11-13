@@ -54,6 +54,4 @@ export class AboutComponent {
       url: 'http://momentjs.com/',
     },
   ];
-
-  constructor() { }
 }

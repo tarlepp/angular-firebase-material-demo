@@ -12,16 +12,30 @@ import { LocalStorageService } from 'ng2-webstorage';
 export class EntryComponent implements OnInit {
   @ViewChild('nickControl') nickControl: MdInput;
 
-  constructor(
+  /**
+   * Constructor of the class.
+   *
+   * @param {LocalStorageService} localStorage
+   * @param {Router}              router
+   */
+  public constructor(
     private localStorage: LocalStorageService,
     private router: Router
   ) { }
 
-  ngOnInit() {
+  /**
+   * ngOnInit lifecycle hook.
+   */
+  public ngOnInit() {
     this.nickControl.focus();
   }
 
-  enterNick(nick: string) {
+  /**
+   * Method to store nick to local storage and redirect user.
+   *
+   * @param {string} nick
+   */
+  public enterNick(nick: string) {
     this.localStorage.store('nick', nick);
 
     this.router.navigateByUrl('/chat');

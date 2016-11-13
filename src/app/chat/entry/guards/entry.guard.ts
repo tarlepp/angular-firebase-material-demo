@@ -10,7 +10,7 @@ export class EntryGuard implements CanActivate {
    * @param {LocalStorageService} localStorage
    * @param {Router}              router
    */
-  constructor(
+  public constructor(
     private localStorage: LocalStorageService,
     private router: Router
   ) { }
@@ -23,7 +23,7 @@ export class EntryGuard implements CanActivate {
    * @param {RouterStateSnapshot}     state
    * @returns {boolean}
    */
-  canActivate(
+  public canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
