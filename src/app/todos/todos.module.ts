@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { SharedModule } from './../shared/shared.module'
+import { SharedModule } from './../shared/shared.module';
 import { TodosComponent, TodosResolver } from './index';
+import { TodosRoutingModule } from './todos-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModule,
+    TodosRoutingModule,
   ],
   declarations: [
     TodosComponent,
@@ -17,7 +17,7 @@ import { TodosComponent, TodosResolver } from './index';
   ],
   providers: [
     TodosResolver,
-  ]
+  ],
 })
 
 export class TodosModule { }
