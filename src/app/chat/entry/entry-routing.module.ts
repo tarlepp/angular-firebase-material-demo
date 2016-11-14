@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthenticationGuard } from './../../shared';
-import { EntryComponent } from './entry.component';
-import { EntryGuard } from './guards/';
+import { EntryComponent, EntryGuard } from './index';
 
 @NgModule({
   imports: [
