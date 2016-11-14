@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { SharedModule } from './../../shared/shared.module'
+import { SharedModule } from './../../shared/shared.module';
 import { RoomComponent, MessagesResolver, NickGuard, NickResolver } from './index';
+import { RoomRoutingModule } from './room-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModule,
+    RoomRoutingModule,
   ],
   declarations: [
     RoomComponent,
@@ -19,7 +19,7 @@ import { RoomComponent, MessagesResolver, NickGuard, NickResolver } from './inde
     MessagesResolver,
     NickGuard,
     NickResolver,
-  ]
+  ],
 })
 
 export class RoomModule { }
