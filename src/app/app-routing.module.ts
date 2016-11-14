@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AboutRoutes } from './about/';
-import { ChatRoutes } from './chat/';
 import { LayoutRoutes } from './layout/';
-import { LoginRoutes } from './login/';
-import { TodosRoutes } from './todos/';
 
 const appRoutes = [
   {
@@ -13,11 +9,11 @@ const appRoutes = [
     pathMatch: 'full',
     redirectTo: 'about',
   },
-  ...AboutRoutes,
-  ...ChatRoutes,
+  //...AboutRoutes,
+  //...ChatRoutes,
   ...LayoutRoutes,
-  ...LoginRoutes,
-  ...TodosRoutes,
+  // ...LoginRoutes,
+  //...TodosRoutes,
 ];
 
 @NgModule({
@@ -25,9 +21,9 @@ const appRoutes = [
     RouterModule.forRoot(appRoutes)
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ],
-  providers: []
+  providers: [],
 })
 
 export class AppRoutingModule { }
