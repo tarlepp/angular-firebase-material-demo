@@ -2,7 +2,7 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 
-import { AboutComponent } from './about.component';
+import { AboutComponent, AboutListComponent } from './index';
 
 describe('Component: /about/about.component.ts', () => {
   let component: AboutComponent;
@@ -12,12 +12,13 @@ describe('Component: /about/about.component.ts', () => {
     TestBed.configureTestingModule({
       declarations: [
         AboutComponent,
+        AboutListComponent,
       ],
       imports: [
         MaterialModule.forRoot(),
       ],
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

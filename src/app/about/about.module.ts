@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from './../shared/shared.module'
-import { AboutComponent } from './index';
+import { SharedModule } from './../shared/shared.module';
+import { AboutComponent, AboutListComponent } from './index';
 import { AboutRoutingModule } from './about-routing.module';
 
 @NgModule({
@@ -11,9 +11,11 @@ import { AboutRoutingModule } from './about-routing.module';
   ],
   declarations: [
     AboutComponent,
+    AboutListComponent,
   ],
   exports: [
     AboutComponent,
+    AboutListComponent,
   ],
 })
 

@@ -1,0 +1,13 @@
+<md-list class="{{className}}">
+  <md-list-item *ngFor="let item of items">
+    <img *ngIf="item.logo" md-list-avatar src="{{item.logo}}" alt="{{item.name}}" />
+
+    <md-icon *ngIf="!item.logo" md-list-avatar>filter_none</md-icon>
+
+    <h3 md-line> {{item.name}}</h3>
+
+    <p md-line>
+      <a href="{{item.url}}" target="_blank">{{item.url}}</a>
+    </p>
+  </md-list-item>
+</md-list>
