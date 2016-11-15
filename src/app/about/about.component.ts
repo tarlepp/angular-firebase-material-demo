@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
+import { Animations } from '../shared/animations';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  host: { '[@routeAnimation]': 'true' },
+  animations: Animations.page,
 })
 
-export class AboutComponent {
-  libraries: any[] = [
+export class AboutComponent extends Animations {
+  public libraries: any[] = [
     {
       name: 'Angular 2',
       logo: '/assets/angular.png',
@@ -29,7 +32,7 @@ export class AboutComponent {
     },
   ];
 
-  externalLinks: any[] = [
+  public externalLinks: any[] = [
     {
       name: 'Angular 2',
       logo: '/assets/angular.png',
@@ -54,4 +57,9 @@ export class AboutComponent {
       url: 'http://momentjs.com/',
     },
   ];
+
+  // Constructor of the class
+  public constructor() {
+    super();
+  }
 }

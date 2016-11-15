@@ -4,23 +4,28 @@ import { FirebaseListObservable } from 'angularfire2';
 import * as firebase from 'firebase'; // This is needed for 'firebase.database.ServerValue.TIMESTAMP' to work
 
 import { ITodoItem } from './interfaces/';
+import { Animations } from '../shared/';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss']
+  styleUrls: ['./todos.component.scss'],
+  host: { '[@routeAnimation]': 'true' },
+  animations: Animations.page,
 })
 
-export class TodosComponent implements OnInit {
-  private todos: FirebaseListObservable<ITodoItem[]>;
-  private todo: string = '';
+export class TodosComponent extends Animations implements OnInit  {
+  public todos: FirebaseListObservable<ITodoItem[]>;
+  public todo: string = '';
 
   /**
    * Constructor of the class
    *
    * @param {ActivatedRoute}  activatedRoute
    */
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute) {
+    super();
+  }
 
   public ngOnInit() {
     this.activatedRoute.data.subscribe(data => {
