@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Animations } from '../shared/animations';
 import { AnimationsService } from '../shared/animations/animations.service';
 
+import { AboutItem } from './interfaces/';
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -9,7 +11,7 @@ import { AnimationsService } from '../shared/animations/animations.service';
 })
 
 export class AboutComponent extends Animations {
-  public libraries: any[] = [
+  public libraries: AboutItem[] = [
     {
       name: 'Angular 2',
       logo: '/assets/angular.png',
@@ -31,7 +33,7 @@ export class AboutComponent extends Animations {
     },
   ];
 
-  public externalLinks: any[] = [
+  public externalLinks: AboutItem[] = [
     {
       name: 'Angular 2',
       logo: '/assets/angular.png',
