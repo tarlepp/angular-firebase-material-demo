@@ -1,16 +1,13 @@
-import { style, animate, transition, state, trigger, OnDestroy, AfterViewInit } from '@angular/core';
+import { OnDestroy, AfterViewInit } from '@angular/core';
+
+import { AnimationsService } from './animations/index';
 
 export class Animations implements OnDestroy, AfterViewInit {
   public activateAnimation: boolean = true;
 
-  static page = [
-    trigger('routeAnimation', [
-      state('void', style({ opacity: 0 })),
-      state('*', style({ opacity: 1 })),
-      transition('void => *', animate('500ms ease-in')),
-      transition('* => void', animate('0ms ease-out'))
-    ])
-  ];
+  public constructor(
+    protected animationsService: AnimationsService
+  ) { }
 
   /**
    * ngOnDestroy lifecycle hook.
@@ -18,7 +15,7 @@ export class Animations implements OnDestroy, AfterViewInit {
    * @see https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html
    */
   public ngOnDestroy(): void {
-    this.activateAnimation = true;
+    this.animationsService.announceMission(true);
   }
 
   /**
@@ -27,8 +24,6 @@ export class Animations implements OnDestroy, AfterViewInit {
    * @see https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html
    */
   public ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.activateAnimation = false;
-    }, 500);
+    this.animationsService.announceMission(false);
   }
 }

@@ -2,6 +2,7 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 
+import { AnimationsService } from '../shared/animations/index';
 import { AboutComponent, AboutListComponent } from './index';
 
 describe('Component: /about/about.component.ts', () => {
@@ -16,6 +17,9 @@ describe('Component: /about/about.component.ts', () => {
       ],
       imports: [
         MaterialModule.forRoot(),
+      ],
+      providers: [
+        AnimationsService,
       ],
     })
     .compileComponents();

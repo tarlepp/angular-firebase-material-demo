@@ -5,13 +5,14 @@ import * as firebase from 'firebase'; // This is needed for 'firebase.database.S
 
 import { ITodoItem } from './interfaces/';
 import { Animations } from '../shared/';
+import { AnimationsService } from '../shared/animations/animations.service';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
-  host: { '[@routeAnimation]': 'true' },
-  animations: Animations.page,
+  //host: { '[@routeAnimation]': 'true' },
+  //animations: Animations.page,
 })
 
 export class TodosComponent extends Animations implements OnInit  {
@@ -21,10 +22,14 @@ export class TodosComponent extends Animations implements OnInit  {
   /**
    * Constructor of the class
    *
-   * @param {ActivatedRoute}  activatedRoute
+   * @param {ActivatedRoute}    activatedRoute
+   * @param {AnimationsService} animationsService
    */
-  constructor(private activatedRoute: ActivatedRoute) {
-    super();
+  constructor(
+    protected animationsService: AnimationsService,
+    private activatedRoute: ActivatedRoute
+  ) {
+    super(animationsService);
   }
 
   public ngOnInit() {

@@ -6,6 +6,7 @@ import { MaterialModule, MdInput } from '@angular/material';
 import { MomentModule } from 'angular2-moment';
 import { By } from '@angular/platform-browser';
 
+import { AnimationsService } from '../../shared/animations/index';
 import { RoomComponent } from './room.component';
 
 class StubLocalStorageService {
@@ -53,6 +54,7 @@ describe('Component: /chat/room/room.component.ts', () => {
         MaterialModule.forRoot(),
       ],
       providers: [
+        AnimationsService,
         {
           provide: Router,
           useValue: fakeRouter,

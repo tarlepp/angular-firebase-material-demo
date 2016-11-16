@@ -3,7 +3,10 @@
   <router-outlet name="header"></router-outlet>
 </header>
 
-<article>
+<article
+  [class.animation-content-out]="activateAnimation"
+  [class.animation-content-in]="!activateAnimation"
+>
   <router-outlet></router-outlet>
 </article>
 

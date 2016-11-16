@@ -30,8 +30,12 @@ app-root {
   flex: 1 1 auto;
 }
 
-.animation-content {
-  width: 100%;
-  display: block;
-  position: absolute;
+.animation-content-out {
+  opacity: 0;
+  transition: 0ms ease-out;
+}
+
+.animation-content-in {
+  opacity: 1;
+  transition: 500ms ease-in;
 }

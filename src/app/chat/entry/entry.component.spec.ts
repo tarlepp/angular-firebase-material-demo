@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MaterialModule, MdInput } from '@angular/material';
 import { LocalStorageService, Ng2Webstorage } from 'ng2-webstorage';
 
+import { AnimationsService } from '../../shared/animations/index';
 import { EntryComponent } from './entry.component';
 
 describe('Component: /chat/entry/entry.component.ts', () => {
@@ -30,6 +31,7 @@ describe('Component: /chat/entry/entry.component.ts', () => {
         MaterialModule.forRoot(),
       ],
       providers: [
+        AnimationsService,
         {
           provide: LocalStorageService,
           useValue: fakeLocalStorageService,

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { Animations } from '../shared/animations';
+import { AnimationsService } from '../shared/animations/animations.service';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
-  host: { '[@routeAnimation]': 'true' },
-  animations: Animations.page,
 })
 
 export class AboutComponent extends Animations {
@@ -58,8 +57,14 @@ export class AboutComponent extends Animations {
     },
   ];
 
-  // Constructor of the class
-  public constructor() {
-    super();
+  /**
+   * Constructor of the class
+   *
+   * @param {AnimationsService} animationsService
+   */
+  public constructor(
+    protected animationsService: AnimationsService
+  ) {
+    super(animationsService);
   }
 }

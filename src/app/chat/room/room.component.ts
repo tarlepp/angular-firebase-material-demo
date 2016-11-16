@@ -5,6 +5,8 @@ import { FirebaseListObservable } from 'angularfire2';
 import { LocalStorageService } from 'ng2-webstorage';
 
 import { ChatItem, Resolves } from './interfaces/';
+import { Animations } from '../../shared/animations';
+import { AnimationsService } from '../../shared/animations/animations.service';
 
 @Component({
   selector: 'app-chat-room',
@@ -12,18 +14,29 @@ import { ChatItem, Resolves } from './interfaces/';
   styleUrls: ['./room.component.scss']
 })
 
-export class RoomComponent implements OnInit {
+export class RoomComponent extends Animations implements OnInit {
   @ViewChild('messageControl') messageControl: MdInput;
 
   private messages: FirebaseListObservable<ChatItem[]>;
   private nick: string = '';
   private message: string = '';
 
+  /**
+   * Constructor of the class
+   *
+   * @param {AnimationsService}   animationsService
+   * @param {Router}              router
+   * @param {ActivatedRoute}      activatedRoute
+   * @param {LocalStorageService} localStorage
+   */
   constructor(
+    protected animationsService: AnimationsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private localStorage: LocalStorageService
-  ) { }
+  ) {
+    super(animationsService);
+  }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((data: Resolves) => {

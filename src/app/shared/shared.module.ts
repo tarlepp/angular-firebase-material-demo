@@ -12,6 +12,7 @@ import { Ng2Webstorage } from 'ng2-webstorage';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { Directives } from './directives/';
 import { Config } from '../config/config';
+import { AnimationsService } from './animations/animations.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { Config } from '../config/config';
   ],
   providers: [
     MdIconRegistry,
+    AnimationsService,
   ],
   exports: [
     CommonModule,
