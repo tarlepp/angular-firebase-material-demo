@@ -11,15 +11,15 @@ import { AnimationsService } from '../../shared/animations/animations.service';
 @Component({
   selector: 'app-chat-room',
   templateUrl: './room.component.html',
-  styleUrls: ['./room.component.scss']
+  styleUrls: ['./room.component.scss'],
 })
 
 export class RoomComponent extends Animations implements OnInit {
   @ViewChild('messageControl') messageControl: MdInput;
 
-  private messages: FirebaseListObservable<ChatItem[]>;
+  public messages: FirebaseListObservable<ChatItem[]>;
+  public message: string = '';
   private nick: string = '';
-  private message: string = '';
 
   /**
    * Constructor of the class
@@ -29,7 +29,7 @@ export class RoomComponent extends Animations implements OnInit {
    * @param {ActivatedRoute}      activatedRoute
    * @param {LocalStorageService} localStorage
    */
-  constructor(
+  public constructor(
     protected animationsService: AnimationsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -38,7 +38,12 @@ export class RoomComponent extends Animations implements OnInit {
     super(animationsService);
   }
 
-  ngOnInit() {
+  /**
+   * ngOnInit lifecycle hook.
+   *
+   * @see https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html
+   */
+  public ngOnInit() {
     this.activatedRoute.data.subscribe((data: Resolves) => {
       this.messages = data.messages;
       this.nick = data.nick;
@@ -47,7 +52,10 @@ export class RoomComponent extends Animations implements OnInit {
     this.messageControl.focus();
   }
 
-  addNewMessage() {
+  /**
+   * Method to add new message to chat.
+   */
+  public addNewMessage() {
     if (this.message === '/quit') {
       this.localStorage.clear('nick');
 
