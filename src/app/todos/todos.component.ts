@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2';
 import * as firebase from 'firebase'; // This is needed for 'firebase.database.ServerValue.TIMESTAMP' to work
 
-import { ITodoItem } from './interfaces/';
+import { TodoItem } from './interfaces/';
 import { Animations } from '../shared/';
 import { AnimationsService } from '../shared/animations/animations.service';
 
@@ -11,12 +11,10 @@ import { AnimationsService } from '../shared/animations/animations.service';
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
-  //host: { '[@routeAnimation]': 'true' },
-  //animations: Animations.page,
 })
 
 export class TodosComponent extends Animations implements OnInit  {
-  public todos: FirebaseListObservable<ITodoItem[]>;
+  public todos: FirebaseListObservable<TodoItem[]>;
   public todo: string = '';
 
   /**
@@ -50,7 +48,7 @@ export class TodosComponent extends Animations implements OnInit  {
     this.todo = '';
   }
 
-  public toggleStatus(item: ITodoItem) {
+  public toggleStatus(item: TodoItem) {
     this.todos.update(
       item.$key,
       {
@@ -60,7 +58,7 @@ export class TodosComponent extends Animations implements OnInit  {
     );
   }
 
-  public remove(item: ITodoItem) {
+  public remove(item: TodoItem) {
     this.todos.remove(item.$key);
   }
 }
