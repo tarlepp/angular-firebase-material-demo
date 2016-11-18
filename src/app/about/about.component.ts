@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Animations } from '../shared/animations';
-import { AnimationsService } from '../shared/animations/animations.service';
 
+import { Animations, AnimationsService } from '../shared/';
 import { AboutItem } from './interfaces/';
 
 @Component({

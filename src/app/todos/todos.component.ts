@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2';
-import * as firebase from 'firebase'; // This is needed for 'firebase.database.ServerValue.TIMESTAMP' to work
 
 import { TodoItem } from './interfaces/';
-import { Animations } from '../shared/';
-import { AnimationsService } from '../shared/animations/animations.service';
+import { Animations, AnimationsService } from '../shared/';
 
 @Component({
   selector: 'app-todos',

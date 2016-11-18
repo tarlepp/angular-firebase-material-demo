@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 
-import { AnimationsService } from '../shared/animations/animations.service';
-import { Animations } from '../shared/animations';
+import { Animations, AnimationsService } from '../shared/';
 
 @Component({
   selector: 'app-login',

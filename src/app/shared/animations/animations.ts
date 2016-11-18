@@ -1,10 +1,15 @@
 import { OnDestroy, AfterViewInit } from '@angular/core';
 
-import { AnimationsService } from './animations/index';
+import { AnimationsService } from './index';
 
-export class Animations implements OnDestroy, AfterViewInit {
+export abstract class Animations implements OnDestroy, AfterViewInit {
   public activateAnimation: boolean = true;
 
+  /**
+   * Constructor of the class.
+   *
+   * @param {AnimationsService} animationsService
+   */
   public constructor(
     protected animationsService: AnimationsService
   ) { }

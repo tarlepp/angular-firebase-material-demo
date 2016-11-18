@@ -5,8 +5,7 @@ import { FirebaseListObservable } from 'angularfire2';
 import { LocalStorageService } from 'ng2-webstorage';
 
 import { ChatItem, Resolves } from './interfaces/';
-import { Animations } from '../../shared/animations';
-import { AnimationsService } from '../../shared/animations/animations.service';
+import { Animations, AnimationsService } from '../../shared/';
 
 @Component({
   selector: 'app-chat-room',
@@ -54,6 +53,10 @@ export class RoomComponent extends Animations implements OnInit {
 
   /**
    * Method to add new message to chat.
+   *
+   * Special cases for messages:
+   *  Message   Action
+   *  /quit     Quits from chat room and redirect to chat entry
    */
   public addNewMessage() {
     if (this.message === '/quit') {

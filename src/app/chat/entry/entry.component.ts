@@ -3,13 +3,12 @@ import { Router } from '@angular/router';
 import { MdInput } from '@angular/material';
 import { LocalStorageService } from 'ng2-webstorage';
 
-import { Animations } from '../../shared/animations';
-import { AnimationsService } from '../../shared/animations/animations.service';
+import { Animations, AnimationsService } from '../../shared/';
 
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.scss']
+  styleUrls: ['./entry.component.scss'],
 })
 
 export class EntryComponent extends Animations implements OnInit {
