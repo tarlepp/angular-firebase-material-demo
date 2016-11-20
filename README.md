@@ -54,10 +54,10 @@ Demo of this application can be found from [https://fir-todo-v3.firebaseapp.com/
  * [Material design](https://www.google.com/design/spec/material-design/)
 
 ## Installation
-First of all you have to install <code>npm</code> and <code>node.js</code> to your box. Installation instructions can
+First of all you have to install ```npm``` and ```node.js``` to your box. Installation instructions can
 be found [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager). 
 
-Also note that ```node.js 6.x``` is required.
+Note that ```node.js 6.x``` is required.
 
 ```bash
 $ git clone https://github.com/tarlepp/angular2-firebase-material-demo.git
@@ -82,7 +82,7 @@ After you have created new application you need to make some [security rules](ht
 for the used data storage. Below is configuration that this demo application uses, so you can use the same within your 
 application.
 
-```
+```json
 {
     "rules": {
       "messages": {
@@ -108,11 +108,9 @@ logged in to read / write those.
 To start developing in the project run:
 
 ```bash
-npm start
-``` 
-OR
-```bash
-ng serve
+$ npm start
+# OR
+$ ng serve
 ```
 
 Then head to `http://localhost:4200` in your browser.
@@ -122,13 +120,17 @@ Then head to `http://localhost:4200` in your browser.
 ### Unit tests
 To run tests run:
 ```bash
-ng test
+$ npm test
+# OR
+$ ng test
 ```
 
 ### e2e tests
 To run tests run:
 ```bash
-ng e2e
+$ npm run e2e
+# OR
+$ ng e2e
 ```
 
 ## Build
