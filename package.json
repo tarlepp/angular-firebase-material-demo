@@ -32,12 +32,11 @@
     "core-js": "2.4.1",
     "firebase": "3.6.1",
     "ng2-webstorage": "1.4.1",
-    "rxjs": "5.0.0-rc.3",
+    "rxjs": "5.0.0-rc.4",
     "ts-helpers": "1.1.2",
     "zone.js": "0.6.26"
   },
   "devDependencies": {
-    "@types/chai": "3.4.34",
     "@types/core-js": "0.9.34",
     "@types/jasmine": "2.5.38",
     "angular-cli": "1.0.0-beta.20-4",
@@ -53,7 +52,7 @@
     "karma-phantomjs-launcher": "1.0.2",
     "protractor": "4.0.11",
     "ts-node": "1.7.0",
-    "tslint": "4.0.0",
+    "tslint": "4.0.1",
     "typescript": "2.0.10"
   }
 }
