@@ -82,7 +82,7 @@ After you have created new application you need to make some [security rules](ht
 for the used data storage. Below is configuration that this demo application uses, so you can use the same within your 
 application.
 
-```json
+```
 {
     "rules": {
       "messages": {
