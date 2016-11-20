@@ -59,6 +59,17 @@ be found [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-packa
 
 Also note that ```node.js 6.x``` is required.
 
+```bash
+$ git clone https://github.com/tarlepp/angular2-firebase-material-demo.git
+$ cd angular2-firebase-material-demo
+
+# install the project's dependencies
+$ npm install
+
+# fast install (via Yarn, https://yarnpkg.com)
+$ yarn install  # or yarn
+```
+
 ### Configuration
 See ```/src/app/config/config.ts_example``` file and copy it to ```/src/app/config/config.ts``` file and make
 necessary changes to it. Note that you need a Firebase account to get all necessary config values.
@@ -97,7 +108,7 @@ logged in to read / write those.
 To start developing in the project run:
 
 ```bash
-npm run start
+npm start
 ``` 
 OR
 ```bash
@@ -122,9 +133,6 @@ ng e2e
 
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Deploying to Github Pages
-Run `ng github-pages:deploy` to deploy to Github Pages.
 
 ## Author
 Tarmo Leppänen
