@@ -10,9 +10,9 @@
   ],
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --host 0.0.0.0",
+    "start": "./node_modules/.bin/ng serve --host 0.0.0.0",
     "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test",
+    "test": "./node_modules/.bin/ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor"
   },

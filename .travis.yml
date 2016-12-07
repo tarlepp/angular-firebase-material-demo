@@ -25,12 +25,11 @@ before_install:
 
 # Before actual tests we need to install angular-cli and finally start window manager if tests are run on linux
 before_script:
-  - npm install -g angular-cli
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
 
 # Actual test script, note that we need to pass --watch=false option for this
 script:
-  - ng test --watch=false
+  - ./node_modules/.bin/ng test --watch=false
 
 # And please send emails on errors
 notifications:
