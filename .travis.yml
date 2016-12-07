@@ -23,6 +23,9 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
   - cp src/app/config/config.ts_example src/app/config/config.ts
 
+install:
+  - npm install
+
 # Before actual tests we need to install angular-cli and finally start window manager if tests are run on linux
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
