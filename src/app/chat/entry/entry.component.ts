@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MdInput } from '@angular/material';
 import { LocalStorageService } from 'ng2-webstorage';
 
 import { Animations, AnimationsService } from '../../shared/';
@@ -12,7 +11,7 @@ import { Animations, AnimationsService } from '../../shared/';
 })
 
 export class EntryComponent extends Animations implements OnInit {
-  @ViewChild('nickControl') nickControl: MdInput;
+  @ViewChild('nickControl') nickControl: any;
 
   /**
    * Constructor of the class.
@@ -35,7 +34,7 @@ export class EntryComponent extends Animations implements OnInit {
    * @see https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html
    */
   public ngOnInit() {
-    this.nickControl.focus();
+    //this.nickControl.focus();
   }
 
   /**

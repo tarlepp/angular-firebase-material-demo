@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MdInput } from '@angular/material';
 import { FirebaseListObservable } from 'angularfire2';
 import { LocalStorageService } from 'ng2-webstorage';
 
@@ -14,7 +13,7 @@ import { Animations, AnimationsService } from '../../shared/';
 })
 
 export class RoomComponent extends Animations implements OnInit {
-  @ViewChild('messageControl') messageControl: MdInput;
+  @ViewChild('messageControl') messageControl: any;
 
   public messages: FirebaseListObservable<ChatItem[]>;
   public message: string = '';
@@ -48,7 +47,7 @@ export class RoomComponent extends Animations implements OnInit {
       this.nick = data.nick;
     });
 
-    this.messageControl.focus();
+    //this.messageControl.focus();
   }
 
   /**

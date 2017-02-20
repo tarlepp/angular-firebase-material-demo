@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { FirebaseAuth, FirebaseAuthState } from 'angularfire2';
+import { AngularFire, FirebaseAuthState } from 'angularfire2';
 import { Observable } from 'rxjs';
 
 import 'rxjs/add/operator/do';
@@ -15,11 +15,11 @@ export class AuthenticationGuard implements CanActivate {
   /**
    * Constructor of the class
    *
-   * @param {FirebaseAuth}  auth
-   * @param {Router}        router
+   * @param {AngularFire} angularFire
+   * @param {Router}      router
    */
   constructor(
-    private auth: FirebaseAuth,
+    private angularFire: AngularFire,
     private router: Router
   ) {}
 
@@ -31,7 +31,7 @@ export class AuthenticationGuard implements CanActivate {
    * @returns {Observable<boolean>}
    */
   canActivate(): Observable<boolean> {
-    return this.auth
+    return this.angularFire.auth
       .take(1)
       .map((authState: FirebaseAuthState) => {
         !!authState ? localStorage.setItem('uid', authState.uid) : localStorage.removeItem('uid');

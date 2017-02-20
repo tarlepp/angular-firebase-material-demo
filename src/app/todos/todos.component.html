@@ -5,10 +5,13 @@
 
   <form #todoForm="ngForm" (submit)="addNewTodo()" appLayout="column">
     <div appLayout="row">
-      <md-input name="todo" class="fill" placeholder="New todo item" required appFlex
-        [(ngModel)]="todo"
-        #todoControl
-      ></md-input>
+      <md-input-container>
+        <input name="todo" class="fill" placeholder="New todo item" required appFlex
+          mdInput
+          [(ngModel)]="todo"
+          #todoControl
+        />
+      </md-input-container>
 
       <button type="submit" md-icon-button color="primary"
         [disabled]="todoForm.invalid"

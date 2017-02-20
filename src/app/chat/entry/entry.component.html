@@ -6,9 +6,12 @@
     >
       <div appLayout="row">
         <div appFlex>
-          <md-input name="nickForm" placeholder="Enter nick" required
-            #nickControl
-          ></md-input>
+          <md-input-container>
+            <input name="nickForm" placeholder="Enter nick" required
+              mdInput
+              #nickControl
+            />
+          </md-input-container>
         </div>
 
         <div appFlex appFlexGrow="0">

@@ -20,10 +20,13 @@
   <div class="normal-content" appFlex="60px" appFlexGrow="0" appLayout="column" appLayoutJustify="flex-end">
     <form #messageForm="ngForm" (submit)="addNewMessage()" autocomplete="off">
       <div appLayout="row">
-        <md-input name="message" placeholder="Add new message" required appFlex="100%"
-          [(ngModel)]="message"
-          #messageControl
-        ></md-input>
+        <md-input-container>
+          <input name="message" placeholder="Add new message" required appFlex="100%"
+            mdInput
+            [(ngModel)]="message"
+            #messageControl
+          />
+        </md-input-container>
 
         <div appFlex appFlexGrow="0">
           <button type="submit" md-icon-button color="primary"
