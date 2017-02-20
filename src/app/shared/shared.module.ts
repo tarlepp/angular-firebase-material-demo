@@ -10,6 +10,8 @@ import { AngularFireModule } from 'angularfire2';
 import { MomentModule } from 'angular2-moment';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
+import 'hammerjs';
+
 import { AuthenticationModule } from './authentication/authentication.module';
 import { Directives } from './directives/';
 import { Config } from '../config/config';
