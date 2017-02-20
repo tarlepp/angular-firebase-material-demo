@@ -2,8 +2,10 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MaterialModule, MdInput } from '@angular/material';
+import { MaterialModule } from '@angular/material';
 import { LocalStorageService, Ng2Webstorage } from 'ng2-webstorage';
+
+import 'hammerjs';
 
 import { AnimationsService } from '../../shared/animations/index';
 import { EntryComponent } from './entry.component';
@@ -64,13 +66,11 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
   describe('After entering nick', () => {
     it('should allow to click submit button (button should not be disabled)', () => {
-      const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
       const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
       const button: HTMLButtonElement = fixture.debugElement.query(By.css('button')).nativeElement;
 
       // Fake a `change` event being triggered.
       inputElement.value = 'new nick';
-      input._handleChange(<any> {target: inputElement});
 
       fixture.detectChanges();
 
@@ -79,7 +79,6 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
     it('should store nick to local storage on submit', () => {
       const localStorageService = fixture.debugElement.injector.get(LocalStorageService);
-      const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
       const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
       const form = fixture.debugElement.query(By.css('form'));
 
@@ -87,7 +86,6 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
       // Fake a `change` event being triggered.
       inputElement.value = 'new nick';
-      input._handleChange(<any> {target: inputElement});
 
       form.triggerEventHandler('submit', null);
 
@@ -98,7 +96,6 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
     it('should redirect user to chat on submit', () => {
       const router = fixture.debugElement.injector.get(Router);
-      const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
       const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
       const form = fixture.debugElement.query(By.css('form'));
 
@@ -106,7 +103,6 @@ describe('Component: /chat/entry/entry.component.ts', () => {
 
       // Fake a `change` event being triggered.
       inputElement.value = 'new nick';
-      input._handleChange(<any> {target: inputElement});
 
       form.triggerEventHandler('submit', null);
 

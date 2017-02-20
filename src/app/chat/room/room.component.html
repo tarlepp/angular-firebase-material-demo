@@ -1,5 +1,5 @@
 <div class="outer">
-  <div class="container" #list [scrollTop]="list.scrollHeight">
+  <div class="container" #list>
     <md-list class="normal-content">
       <md-list-item *ngFor="let message of messages | async">
         <div fxLayout="column" fxLayoutAlign="start start" fxFill>

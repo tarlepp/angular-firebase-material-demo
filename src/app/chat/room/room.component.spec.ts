@@ -91,13 +91,11 @@ describe('Component: /chat/room/room.component.ts', () => {
 
   describe('After entering message', () => {
     it('should allow to click submit button (button should not be disabled)', () => {
-      const input: MdInput = fixture.debugElement.query(By.directive(MdInput)).componentInstance;
       const inputElement: HTMLInputElement = fixture.debugElement.query(By.css('input')).nativeElement;
       const button: HTMLButtonElement = fixture.debugElement.query(By.css('button')).nativeElement;
 
       // Fake a `change` event being triggered.
       inputElement.value = 'awesome message!';
-      input._handleChange(<any> {target: inputElement});
 
       fixture.detectChanges();
 
