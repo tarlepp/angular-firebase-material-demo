@@ -1,12 +1,10 @@
-<div class="normal-content"
-  [class.animation-contentsss]="activateAnimation"
->
+<div class="normal-content" fxLayout="column" fxFill>
   <h2>Add new todo</h2>
 
-  <form #todoForm="ngForm" (submit)="addNewTodo()" appLayout="column">
-    <div appLayout="row">
-      <md-input-container>
-        <input name="todo" class="fill" placeholder="New todo item" required appFlex
+  <form #todoForm="ngForm" (submit)="addNewTodo()">
+    <div fxLayout="row" fxFill>
+      <md-input-container fxFlex>
+        <input name="todo" class="fill" placeholder="New todo item" required
           mdInput
           [(ngModel)]="todo"
           #todoControl
@@ -31,13 +29,13 @@
       (mouseenter)="item.active = true"
       (mouseleave)="item.active = false"
     >
-      <div appLayout="row" appLayoutAlign="center" appFlex>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
         <md-checkbox
           [(ngModel)]="item.done"
           (change)="toggleStatus(item)"
         ></md-checkbox>
 
-        <div appFlex="100%">
+        <div fxFlex fxLayout="column" fxLayoutAlign="space-between stretch">
           <h3>{{item.todo}}</h3>
           <p>
             Created: {{((item.createdAt / 1000) | amFromUnix) | amDateFormat: 'DD.MM.YY HH:mm'}}
@@ -48,7 +46,7 @@
           </p>
         </div>
 
-        <div appFlex="40px">
+        <div>
           <button md-mini-fab color="warn"
             (click)="remove(item)"
           >

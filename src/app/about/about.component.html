@@ -1,4 +1,4 @@
-<div class="normal-content">
+<div class="normal-content" fxLayout="column" fxFill>
   <h2>What is this?</h2>
 
   <p>
@@ -6,8 +6,8 @@
     show how powerful these components are together.
   </p>
 
-  <div appLayout="row">
-    <div>
+  <div fxLayout="row" fxLayoutAlign="space-around start" fxFill>
+    <div fxLayout="column"  fxLayoutAlign="start center" fxFlex>
       <h4>Used libraries</h4>
 
       <app-about-list
@@ -16,7 +16,7 @@
       ></app-about-list>
     </div>
 
-    <div>
+    <div fxLayout="column"  fxLayoutAlign="start center" fxFlex>
       <h4>External links</h4>
 
       <app-about-list

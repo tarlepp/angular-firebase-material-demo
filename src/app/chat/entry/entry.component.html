@@ -1,26 +1,19 @@
-<div class="container" appLayout="column" data-appLayoutAlign="center" data-appLayoutJustify="center" appFlex>
-    <form class="form-entry" #nickForm="ngForm" (submit)="enterNick(nickControl.value)" autocomplete="off"
-      appLayout="column"
-      data-appLayoutAlign="center"
-      data-appLayoutJustify="center"
-    >
-      <div appLayout="row">
-        <div appFlex>
-          <md-input-container>
-            <input name="nickForm" placeholder="Enter nick" required
-              mdInput
-              #nickControl
-            />
-          </md-input-container>
-        </div>
+<div class="container" fxLayout="column" fxLayoutAlign="center center" fxFill>
 
-        <div appFlex appFlexGrow="0">
-          <button type="submit" md-icon-button color="primary"
-            [disabled]="!nickControl.value"
-          >
-            <md-icon>send</md-icon>
-          </button>
-        </div>
-      </div>
+    <form class="form-entry" #nickForm="ngForm" (submit)="enterNick(nickControl.value)" autocomplete="off"
+      fxLayout="row"
+    >
+      <md-input-container>
+        <input name="nickForm" placeholder="Enter nick" required
+          mdInput
+          #nickControl
+        />
+      </md-input-container>
+
+      <button type="submit" md-icon-button color="primary"
+        [disabled]="!nickControl.value"
+      >
+        <md-icon>send</md-icon>
+      </button>
     </form>
 </div>

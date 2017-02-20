@@ -13,9 +13,7 @@ p {
   margin: 0;
 }
 
-md-checkbox {
-  position: relative;
-  top: -8px;
+.mat-checkbox {
   margin-right: 8px;
 }
 
@@ -31,11 +29,12 @@ md-checkbox {
   }
 }
 
-:host /deep/ .md-list-item {
+.mat-list-item {
   height: auto;
-  padding: 4px 0;
+  padding: 8px 0;
 
   &:hover {
     background-color: rgba(0, 0, 0, .06);
   }
 }
+
