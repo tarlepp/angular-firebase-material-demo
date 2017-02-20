@@ -32,7 +32,7 @@ before_script:
 
 # Actual test script, note that we need to pass --watch=false option for this
 script:
-  - ./node_modules/.bin/ng test --watch=false
+  - ./node_modules/.bin/ng lint && ./node_modules/.bin/ng test --watch=false --code-coverage
 
 # And please send emails on errors
 notifications:
