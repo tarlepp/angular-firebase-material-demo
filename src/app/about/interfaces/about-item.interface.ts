@@ -1,5 +1,5 @@
 export interface AboutItem {
-  url: string,
-  name: string,
-  logo?: string,
+  url: string;
+  name: string;
+  logo?: string;
 }

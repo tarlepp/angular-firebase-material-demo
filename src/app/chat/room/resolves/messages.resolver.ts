@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import 'rxjs';
 
 import { ChatItem } from '../interfaces/chat-item.interface';
 
@@ -27,7 +26,7 @@ export class MessagesResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<FirebaseListObservable<ChatItem[]>> {
-    let list = this.angularFire.database.list(
+    const list = this.angularFire.database.list(
       '/messages/',
       {
         query: {

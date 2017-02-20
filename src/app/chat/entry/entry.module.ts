@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from './../../shared/shared.module'
+import { SharedModule } from '../../shared/shared.module';
 import { EntryComponent, EntryGuard } from './index';
 import { EntryRoutingModule } from './entry-routing.module';
 

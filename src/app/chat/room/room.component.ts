@@ -16,8 +16,8 @@ export class RoomComponent extends Animations implements OnInit {
   @ViewChild('messageControl') messageControl: any;
 
   public messages: FirebaseListObservable<ChatItem[]>;
-  public message: string = '';
-  private nick: string = '';
+  public message: string;
+  private nick: string;
 
   /**
    * Constructor of the class
@@ -47,7 +47,7 @@ export class RoomComponent extends Animations implements OnInit {
       this.nick = data.nick;
     });
 
-    //this.messageControl.focus();
+    // this.messageControl.focus();
   }
 
   /**

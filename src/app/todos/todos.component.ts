@@ -13,7 +13,7 @@ import { Animations, AnimationsService } from '../shared/';
 
 export class TodosComponent extends Animations implements OnInit  {
   public todos: FirebaseListObservable<TodoItem[]>;
-  public todo: string = '';
+  public todo: string;
 
   /**
    * Constructor of the class
@@ -35,7 +35,7 @@ export class TodosComponent extends Animations implements OnInit  {
   }
 
   public addNewTodo() {
-    let item = {
+    const item = {
       todo: this.todo,
       done: false,
       createdAt: firebase.database.ServerValue.TIMESTAMP,

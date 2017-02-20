@@ -2,7 +2,7 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocalStorageService, Ng2Webstorage } from 'ng2-webstorage';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule, MdInput } from '@angular/material';
+import { MaterialModule } from '@angular/material';
 import { MomentModule } from 'angular2-moment';
 import { By } from '@angular/platform-browser';
 
@@ -80,9 +80,7 @@ describe('Component: /chat/room/room.component.ts', () => {
   });
 
   it('should create the component', async(() => {
-    let component = fixture.debugElement.componentInstance;
-
-    expect(component).toBeTruthy();
+    expect(fixture.debugElement.componentInstance).toBeTruthy();
   }));
 
   it('should not allow to click submit button if no message given (button should be disabled)', () => {

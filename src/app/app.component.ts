@@ -9,7 +9,7 @@ import { AnimationsService } from './shared/animations/index';
 })
 
 export class AppComponent {
-  public activateAnimation: boolean = false;
+  public activateAnimation = false;
 
   /**
    * Constructor of the class

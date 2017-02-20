@@ -3,7 +3,7 @@ import { OnDestroy, AfterViewInit } from '@angular/core';
 import { AnimationsService } from './index';
 
 export abstract class Animations implements OnDestroy, AfterViewInit {
-  public activateAnimation: boolean = true;
+  public activateAnimation = true;
 
   /**
    * Constructor of the class.

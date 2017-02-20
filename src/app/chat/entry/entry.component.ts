@@ -34,7 +34,7 @@ export class EntryComponent extends Animations implements OnInit {
    * @see https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html
    */
   public ngOnInit() {
-    //this.nickControl.focus();
+    // this.nickControl.focus();
   }
 
   /**
