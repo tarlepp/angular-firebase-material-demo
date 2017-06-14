@@ -1,4 +1,4 @@
-# Angular2/Firebase/Material - Demo
+# Angular/Firebase/Material - Demo
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/tarlepp/angular2-firebase-material-demo.png?branch=master)](https://travis-ci.org/tarlepp/angular2-firebase-material-demo)
 [![codecov](https://codecov.io/gh/tarlepp/angular2-firebase-material-demo/branch/master/graph/badge.svg)](https://codecov.io/gh/tarlepp/angular2-firebase-material-demo)
